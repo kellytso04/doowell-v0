@@ -1,0 +1,37 @@
+{
+  "name": "doowell",
+  "version": "1.0.0",
+  "description": "An integrated to-do list, habit tracker, reminder-keeper, and journal",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "start": "live-server public/",
+    "build": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellytso04/doowell.git"
+  },
+  "author": "Kelly Tso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kellytso04/doowell/issues"
+  },
+  "homepage": "https://github.com/kellytso04/doowell#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "live-server": "^1.2.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  }
+}
