@@ -6,7 +6,8 @@
   "scripts": {
     "test": "",
     "start": "live-server public/",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "schema": "mysql -u USERNAME -p < db/schema.sql"
   },
   "repository": {
     "type": "git",
