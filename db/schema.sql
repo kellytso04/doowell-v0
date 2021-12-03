@@ -1,0 +1,39 @@
+-- CREATE DATABASE doowell;
+USE doowell;
+
+DROP TABLE IF EXISTS `habits`;
+CREATE TABLE `habits` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `habit` VARCHAR(1000) NOT NULL,
+  `date` DATE NOT NULL,
+  `completed` INTEGER NOT NULL DEFAULT 0,
+  `hex_color` VARCHAR(6) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+DROP TABLE IF EXISTS `tasks`;
+CREATE TABLE `tasks` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `task` VARCHAR(1000) NOT NULL,
+  `category` VARCHAR(200) NOT NULL,
+  `completed` INTEGER NOT NULL DEFAULT 0,
+  `hex-color` VARCHAR(6) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+DROP TABLE IF EXISTS `reminders`;
+
+CREATE TABLE `reminders` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `reminder` VARCHAR(2000) NOT NULL,
+  `day` VARCHAR(10) NULL DEFAULT NULL,
+  `time` TIME NULL DEFAULT NULL,
+  `location` VARCHAR(100) NULL DEFAULT NULL,
+  `priority` INTEGER NULL DEFAULT NULL,
+  `details` VARCHAR(2000) NULL DEFAULT NULL,
+  `hex-color` VARCHAR(6)  NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
