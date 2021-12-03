@@ -5,8 +5,11 @@ const Dashboard = ( {name} ) => {
   return (
     <div className='dashboard'>
       <h1>Welcome, {name}</h1>
-      {/* TODO:  */}
       <Clock />
+
+      <br />
+      <br />
+      You have # unfinished tasks and # reminders.
     </div>
   )
 }
