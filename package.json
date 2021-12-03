@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "",
-    "start": "npx live-server server/index.js",
+    "start": "live-server client/dist",
     "build": "webpack --watch --mode development",
     "schema": "mysql -u USERNAME -p < db/schema.sql"
   },
