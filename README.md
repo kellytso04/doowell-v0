@@ -14,7 +14,7 @@ After you've got the database up and running, Doowell's setup is complete!
 ## The planning phase
 ### Application overview
 
-<img width="1440" alt="feature map" src="https://user-images.githubusercontent.com/47910950/144661372-91dc3651-ca52-4948-8602-d5aa5a2a9d42.png">
+<img width="1440" alt="feature map" src="https://user-images.githubusercontent.com/47910950/144663955-1443b759-4ebc-4ec9-bd7e-c3328ebb34f4.png">
 
 <img width="615" alt="schema designs" src="https://user-images.githubusercontent.com/47910950/144663094-def2a1c9-e3fa-43cb-9001-f35aa3ed1dba.png">
 
