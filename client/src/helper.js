@@ -34,6 +34,13 @@ export function updateTask(taskText, updateText) {
     })
 }
 
+export function completeTask(taskText) {
+  return axios.put('/tasks/complete', {taskText: taskText})
+    .catch( (err) => {
+      console.error(err);
+    })
+}
+
 export function deleteTask(taskText) {
   const config = {
     method: 'delete',
@@ -96,11 +103,7 @@ export function deleteReminder(reminderText) {
 }
 
 export function completeReminder(reminderText) {
-  const body = {
-    reminderText: reminderText
-  }
-
-  return axios.put('/reminders/complete', body)
+  return axios.put('/reminders/complete', {reminderText: reminderText})
     .catch( (err) => {
       console.error(err);
     })
