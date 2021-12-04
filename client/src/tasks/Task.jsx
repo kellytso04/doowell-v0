@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { fetchTasks, deleteTask } from '../helper.js';
 
-const Task = ( {taskText, category, color, handleDelete} ) => {
+const Task = ( {taskText, category, color, no, handleDelete} ) => {
   const [ checked, setChecked ] = useState(false);
 
+  const taskID = `task-${no}`;
   useEffect( () => {
-    const currentTask = document.getElementsByClassName('task')[0];
+    const currentTask = document.getElementsByClassName(taskID)[0];
     if (checked) {
       currentTask.style.opacity = '50%';
     } else {
@@ -22,7 +23,7 @@ const Task = ( {taskText, category, color, handleDelete} ) => {
   }
 
   return (
-    <div className='task' style={{color: `${color}`}}>
+    <div className={taskID} style={{color: `${color}`}}>
       <span className='task-description'>
         {taskText}
         <br />
