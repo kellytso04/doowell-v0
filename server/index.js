@@ -142,6 +142,19 @@ app.put('/tasks', (req, res) => {
   });
 });
 
+app.put('/tasks/complete', (req, res) => {
+  const queryString = `UPDATE tasks SET completed = 1 WHERE task = (?)`;
+  const queryArgs = [ req.body.taskText ];
+
+  return client.query(queryString, queryArgs, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.sendStatus(202);
+    }
+  });
+})
+
 app.delete('/tasks', (req, res) => {
   const queryString = `DELETE FROM tasks WHERE task=(?)`;
   const queryArg = [req.body.task]
