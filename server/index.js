@@ -37,7 +37,7 @@ app.post('/habits', (req, res) => {
 });
 
 app.put('/habits', (req, res) => {
-  const queryString = `UPDATE habits SET habit = ${req.body.updateText} WHERE habit = ${req.body.habit}`;
+  const queryString = `UPDATE habits SET habit=${req.body.updateText} WHERE habit=${req.body.habitText}`;
 
   return client.query(queryString, (err) => {
     if (err) {
@@ -59,6 +59,51 @@ app.delete('/habits', (req, res) => {
       res.sendStatus(204);
     }
   });
+});
+
+app.get('/tracked_habits', (req, res) => {
+  const queryString = `SELECT * FROM tracked_habits`;
+
+  client.query(queryString, (err, tracked_habits) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).send(tracked_habits);
+    }
+  });
+});
+
+app.get('/tracked_habits/count', (req, res) => {
+  const queryString = `SELECT COUNT(*) FROM tracked_habits`;
+
+  return client.query(queryString, (err, count) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).send(count[0]);
+    }
+  });
+});
+
+app.post('/tracked_habits', (req, res) => {
+  const queryString = `INSERT INTO tracked_habits (habit) VALUES(?)`;
+  const queryArgs = [req.body.habit];
+
+  return client.query(queryString, queryArgs, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.sendStatus(201);
+    }
+  });
+});
+
+app.put('/tracked_habits', (req, res) => {
+
+});
+
+app.delete('/tracked_habits', (req, res) => {
+
 });
 
 app.get('/tasks', (req, res) => {
