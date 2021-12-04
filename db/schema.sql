@@ -5,9 +5,9 @@ DROP TABLE IF EXISTS `habits`;
 CREATE TABLE `habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `habit` VARCHAR(1000) NOT NULL,
-  `date` DATE NOT NULL,
+  `date` DATE,
   `completed` INTEGER NOT NULL DEFAULT 0,
-  `hex_color` VARCHAR(6) NOT NULL,
+  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE `tasks` (
   `task` VARCHAR(1000) NOT NULL,
   `category` VARCHAR(200) NOT NULL,
   `completed` INTEGER NOT NULL DEFAULT 0,
-  `hex-color` VARCHAR(6) NOT NULL,
+  `hex-color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
 
