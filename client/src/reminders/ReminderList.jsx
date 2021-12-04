@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {fetchReminders, addReminder, updateReminder, deleteReminder} from '../helper.js';
+import {fetchReminders, addReminder, updateReminder, deleteReminder, completeReminder} from '../helper.js';
 import Reminder from './Reminder.jsx';
 import NewReminderForm from './NewReminderForm.jsx';
+
+const RemindersContainer = styled.div`
+  border: #6f9478 10px solid;
+  border-radius: 15px;
+  padding: 10px;
+`
 
 const ReminderList = (props) => {
   const [ reminders, setReminders ] = useState([]);
 
   useEffect( () => {
     fetchReminders()
-      .then( (reminders) => {
-        setReminders(reminders);
+      .then( ({data}) => {
+        setReminders(data);
       })
       .catch( (err) => {
         console.error(err);
       })
   }, []);
 
-  const handleAdd = (reminderObject) => {
-    addReminder(reminderObject)
+  const handleAdd = (reminderText) => {
+    addReminder(reminderText)
       .then( () => {
         fetchReminders()
-          .then( (reminders) => {
-            setReminders(reminders);
+          .then( ({data}) => {
+            setReminders(data);
           })
           .catch( (err) => {
             console.error(err);
@@ -37,8 +43,8 @@ const ReminderList = (props) => {
     updateReminder(reminderText, updateText)
       .then( () => {
         fetchReminders()
-        .then( (reminders) => {
-          setReminders(reminders);
+        .then( ({data}) => {
+          setReminders(data);
         })
         .catch( (err) => {
           console.error(err);
@@ -53,8 +59,8 @@ const ReminderList = (props) => {
     deleteReminder(reminderText)
       .then( () => {
         fetchReminders()
-          .then( (reminders) => {
-            setReminders(reminders);
+          .then( ({data}) => {
+            setReminders(data);
           })
           .catch( (err) => {
             console.error(err);
@@ -65,16 +71,23 @@ const ReminderList = (props) => {
       });
   }
 
+  const handleComplete = (reminderText) => {
+    completeReminder(reminderText)
+      .catch( (err) => {
+        console.error(err);
+      })
+  }
+
   return (
-    <div className='reminders'>
+    <RemindersContainer className='reminders'>
       <ul className='reminder-list'>
         { reminders.length ? reminders.map( (reminder, i) => (
-          <Reminder text={reminder.reminder} color={reminder.hex_color} key={i} />
+          <Reminder text={reminder.reminder} handleComplete={handleComplete} key={i} no={i}/>
         )) : null }
       </ul>
       <br />
       <NewReminderForm addReminder={handleAdd} />
-    </div>
+    </RemindersContainer >
 
   )
 }
