@@ -76,7 +76,7 @@ app.get('/tasks', (req, res) => {
 
 app.post('/tasks', (req, res) => {
   const queryString = `INSERT INTO tasks (task, category, hex_color) VALUES(?, ?, ?)`;
-  const queryArgs = [req.body.task, req.body.category, req.body.hex_color];
+  const queryArgs = [req.body.taskText, req.body.category, req.body.hex_color];
 
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
