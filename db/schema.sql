@@ -10,9 +10,8 @@ CREATE TABLE `habits` (
   PRIMARY KEY (`id`)
 );
 
-
-DROP TABLE IF EXISTS `tracked-habits`;
-CREATE TABLE `tracked-habits` (
+DROP TABLE IF EXISTS `tracked_habits`;
+CREATE TABLE `tracked_habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `habit` VARCHAR(500) UNIQUE NOT NULL,
   PRIMARY KEY (`id`)
