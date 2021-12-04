@@ -103,7 +103,16 @@ app.put('/tracked_habits', (req, res) => {
 });
 
 app.delete('/tracked_habits', (req, res) => {
+  const queryString = `DELETE FROM tracked_habits WHERE habit=(?)`;
+  const queryArg = [req.body.habit]
 
+  return client.query(queryString, queryArg, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.sendStatus(204);
+    }
+  });
 });
 
 app.get('/tasks', (req, res) => {
