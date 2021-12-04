@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { fetchTasks, deleteTask } from '../helper.js';
 
-const Task = ( {taskText, category, color, no, handleDelete} ) => {
+const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) => {
   const [ checked, setChecked ] = useState(false);
 
   const taskID = `task-${no}`;
+
   useEffect( () => {
     const currentTask = document.getElementsByClassName(taskID)[0];
     if (checked) {
@@ -20,10 +21,9 @@ const Task = ( {taskText, category, color, no, handleDelete} ) => {
     setChecked(!checked);
   }
 
-  const handleDoneClick = () => {
-    // TODO: Updates task's 'Completed' status in db
-
-  }
+  // const handleDoneClick = () => {
+  //   handleComplete(taskText);
+  // }
 
   const handleDeleteClick = () => {
     handleDelete(taskText);
@@ -37,7 +37,7 @@ const Task = ( {taskText, category, color, no, handleDelete} ) => {
         {category}
       </span>
       <span>
-        <button value='✔️' onClick={handleDoneClick}>✔️</button>
+        <button value='✔️' onClick={(e) => { handleComplete(taskText) }}>✔️</button>
         <button value='-' onClick={handleDeleteClick}>-</button>
       </span>
     </div>

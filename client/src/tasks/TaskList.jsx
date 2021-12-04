@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { fetchTasks, addTask, deleteTask } from '../helper.js';
+import { fetchTasks, addTask, updateTask, completeTask, deleteTask } from '../helper.js';
 import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
 
@@ -15,9 +15,37 @@ const TaskList = (props) => {
       })
       .catch( (err) => {
         console.error(err);
-        console.error('Failed to retrieve tasks');
       });
   }, []);
+
+  const handleAdd = (taskObject) => {
+    addTask(taskObject)
+      .then( () => {
+        fetchTasks()
+          .then( ({data}) => {
+            setTasks(data);
+          })
+          .catch( (err) => {
+            console.error(err);
+          });
+      });
+  }
+
+  const handleComplete = (taskText) => {
+    completeTask(taskText)
+      .then( () => {
+        fetchTasks()
+          .then( ({data}) => {
+            setTasks(data);
+          })
+          .catch( (err) => {
+            console.error(err);
+          });
+      })
+      .catch( (err) => {
+        console.error(err);
+      });
+  }
 
   const handleDelete = (taskText) => {
     deleteTask(taskText)
@@ -35,19 +63,6 @@ const TaskList = (props) => {
       })
   }
 
-  const handleAdd = (taskObject) => {
-    addTask(taskObject)
-      .then( () => {
-        fetchTasks()
-          .then( ({data}) => {
-            setTasks(data);
-          })
-          .catch( (err) => {
-            console.error(err);
-          });
-      });
-  }
-
   return (
     <div>
       <ul className='task-list'>
@@ -59,6 +74,7 @@ const TaskList = (props) => {
               color={`#${task.hex_color}`}
               key={i}
               no={i}
+              handleComplete={handleComplete}
               handleDelete={handleDelete}
               />
           )
