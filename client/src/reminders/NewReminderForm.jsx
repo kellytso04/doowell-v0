@@ -7,19 +7,21 @@ const NewReminderForm = ( {addReminder} ) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const reminderObject = {
-      reminder: reminderText,
-      hex_color: 'f7d088'
-    }
+    addReminder(reminderText);
 
-    addReminder(reminderObject);
+    setReminderText('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>Add a new reminder</label>
       <br />
-      <input type='text' placeholder='Jot something down...' onChange={(e) => { setReminderText(e.target.value) }} />
+      <input
+        type='text'
+        placeholder='Jot something down...'
+        value={reminderText}
+        onChange={(e) => { setReminderText(e.target.value) }}
+      />
       <input type='submit' value='Add my reminder' />
     </form>
   )
