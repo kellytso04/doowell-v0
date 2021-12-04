@@ -18,6 +18,7 @@ app.get('/habits', (req, res) => {
   client.query(queryString, (err, habits) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     }
       res.status(200).send(habits);
   });
@@ -30,6 +31,7 @@ app.post('/habits', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(201);
     }
@@ -42,6 +44,7 @@ app.put('/habits', (req, res) => {
   return client.query(queryString, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(202);
     }
@@ -55,6 +58,7 @@ app.delete('/habits', (req, res) => {
   return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(204);
     }
@@ -67,6 +71,7 @@ app.get('/tracked_habits', (req, res) => {
   client.query(queryString, (err, tracked_habits) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.status(200).send(tracked_habits);
     }
@@ -79,6 +84,7 @@ app.get('/tracked_habits/count', (req, res) => {
   return client.query(queryString, (err, count) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.status(200).send(count[0]);
     }
@@ -92,6 +98,7 @@ app.post('/tracked_habits', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(201);
     }
@@ -109,6 +116,7 @@ app.delete('/tracked_habits', (req, res) => {
   return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(204);
     }
@@ -121,6 +129,7 @@ app.get('/tasks', (req, res) => {
   client.query(queryString, (err, tasks) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     }
       res.status(200).send(tasks);
   });
@@ -133,6 +142,7 @@ app.post('/tasks', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(201);
     }
@@ -145,6 +155,7 @@ app.put('/tasks', (req, res) => {
   return client.query(queryString, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(202);
     }
@@ -158,6 +169,7 @@ app.put('/tasks/complete', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(202);
     }
@@ -171,6 +183,7 @@ app.delete('/tasks', (req, res) => {
   return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(204);
     }
@@ -183,6 +196,7 @@ app.get('/reminders', (req, res) => {
   client.query(queryString, (err, reminders) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     }
       res.status(200).send(reminders);
   });
@@ -195,6 +209,7 @@ app.post('/reminders', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(201);
     }
@@ -207,6 +222,7 @@ app.put('/reminders', (req, res) => {
   return client.query(queryString, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(202);
     }
@@ -220,6 +236,7 @@ app.put('/reminders/complete', (req, res) => {
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(202);
     }
@@ -233,6 +250,7 @@ app.delete('/reminders', (req, res) => {
   return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
+      res.sendStatus(500);
     } else {
       res.sendStatus(204);
     }
