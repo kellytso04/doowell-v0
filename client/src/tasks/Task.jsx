@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
+import { fetchTasks, deleteTask } from '../helper.js';
 
-const Task = ( {task, category, color} ) => {
+const Task = ( {taskText, category, color, handleDelete} ) => {
   const [ checked, setChecked ] = useState(false);
 
   useEffect( () => {
-    const task = document.getElementsByClassName('task')[0];
-
+    const currentTask = document.getElementsByClassName('task')[0];
     if (checked) {
-      task.style.opacity = '75%';
+      currentTask.style.opacity = '75%';
     } else {
-      task.style.opacity = '100%';
+      currentTask.style.opacity = '100%';
     }
   }, [checked]);
 
@@ -17,10 +17,14 @@ const Task = ( {task, category, color} ) => {
     setChecked(!checked);
   }
 
+  const handleClick = () => {
+    handleDelete(taskText);
+  }
+
   return (
     <div className='task' style={{color: `${color}`}}>
       <span className='task-description'>
-        {task}
+        {taskText}
         <br />
         {category}
       </span>
@@ -30,6 +34,7 @@ const Task = ( {task, category, color} ) => {
           checked={checked}
           onChange={handleChange}
         />
+        <button value='Delete task' onClick={handleClick}>Delete task</button>
       </span>
     </div>
   )
