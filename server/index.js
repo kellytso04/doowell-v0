@@ -19,7 +19,6 @@ app.get('/habits', (req, res) => {
     if (err) {
       console.error(err);
     }
-      console.log('Received back: ', habits);
       res.status(200).send(habits);
   });
 });
@@ -69,7 +68,6 @@ app.get('/tasks', (req, res) => {
     if (err) {
       console.error(err);
     }
-      console.log('Received back: ', tasks);
       res.status(200).send(tasks);
   });
 });
@@ -113,20 +111,19 @@ app.delete('/tasks', (req, res) => {
 });
 
 app.get('/reminders', (req, res) => {
-  const queryString = `SELECT * FROM reminders`;
+  const queryString = `SELECT * FROM reminders WHERE completed=0`;
 
   client.query(queryString, (err, reminders) => {
     if (err) {
       console.error(err);
     }
-      console.log('Received back: ', reminders);
       res.status(200).send(reminders);
   });
 });
 
 app.post('/reminders', (req, res) => {
-  const queryString = `INSERT INTO reminders (reminder, day, time, location, priority, details, hex_color) VALUES(?, ?, ?, ?, ?, ?, ?)`;
-  const queryArgs = [req.body.reminder, req.body.day, req.body.time, req.body.location, req.body.priority, req.body.details, req.body.hex_color];
+  const queryString = `INSERT INTO reminders (reminder) VALUES(?)`;
+  const queryArgs = [req.body.reminder];
 
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
@@ -148,6 +145,19 @@ app.put('/reminders', (req, res) => {
     }
   });
 });
+
+app.put('/reminders/complete', (req, res) => {
+  const queryString = `UPDATE reminders SET completed = 1 WHERE reminder = (?)`;
+  const queryArgs = [ req.body.reminderText ];
+
+  return client.query(queryString, queryArgs, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      res.sendStatus(202);
+    }
+  });
+})
 
 app.delete('/reminders', (req, res) => {
   const queryString = `DELETE FROM reminders WHERE reminder=(?)`;
