@@ -52,12 +52,12 @@ export function deleteTask(taskText) {
 
 export function fetchReminders() {
   return axios.get('/reminders')
-  .then( (reminders) => {
-    return reminders;
-  })
-  .catch( (err) => {
-    console.error(err);
-  })
+    .then( (reminders) => {
+      return reminders;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
 }
 
 export function addReminder(reminderText) {
@@ -104,4 +104,53 @@ export function completeReminder(reminderText) {
     .catch( (err) => {
       console.error(err);
     })
+}
+
+export function fetchHabits() {
+  return axios.get('/tracked_habits')
+    .then( (habits) => {
+      return habits;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function getHabitCount() {
+  return axios.get('/tracked_habits/count')
+    .then( ( {data} ) => {
+      const count = data['COUNT(*)'];
+      return count;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function addHabit(habit) {
+  return axios.post('/tracked_habits', { habit: habit })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function editHabit(habitText, updateText) {
+  // TODO: This needs to replace ALL occurrences of `habitText` with `updateText`
+  const habitObject = {
+    habitText: habitText,
+    updateText: updateText
+  }
+
+  return axios.post('/habits', habitObject)
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function completeHabit() {
+
+}
+
+export function deleteHabit() {
+
 }
