@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-// {reminder, day, time, location, priority, details, hex_color}
 const NewReminderForm = ( {addReminder} ) => {
   const [ reminderText, setReminderText ] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     addReminder(reminderText);
-
     setReminderText('');
   }
 
@@ -22,7 +19,7 @@ const NewReminderForm = ( {addReminder} ) => {
         value={reminderText}
         onChange={(e) => { setReminderText(e.target.value) }}
       />
-      <input type='submit' value='Add my reminder' />
+      <input type='submit' value='+' />
     </form>
   )
 }
