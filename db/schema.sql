@@ -5,12 +5,18 @@ DROP TABLE IF EXISTS `habits`;
 CREATE TABLE `habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `habit` VARCHAR(1000) NOT NULL,
-  `date` DATE,
-  `completed` INTEGER NOT NULL DEFAULT 0,
+  `date` DATE NOT NULL,
   `hex_color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
 
+
+DROP TABLE IF EXISTS `tracked-habits`;
+CREATE TABLE `tracked-habits` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `habit` VARCHAR(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+)
 
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
