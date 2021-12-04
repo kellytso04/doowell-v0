@@ -15,7 +15,7 @@ const NewReminderForm = ( {addReminder} ) => {
       <br />
       <input
         type='text'
-        placeholder='Jot something down...'
+        placeholder="Don't forget..."
         value={reminderText}
         onChange={(e) => { setReminderText(e.target.value) }}
       />
