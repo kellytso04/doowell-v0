@@ -18,7 +18,7 @@ CREATE TABLE `tasks` (
   `task` VARCHAR(1000) NOT NULL,
   `category` VARCHAR(200) NOT NULL,
   `completed` INTEGER NOT NULL DEFAULT 0,
-  `hex-color` VARCHAR(6) DEFAULT 'f7d088',
+  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE `reminders` (
   `location` VARCHAR(100) NULL DEFAULT NULL,
   `priority` INTEGER NULL DEFAULT NULL,
   `details` VARCHAR(2000) NULL DEFAULT NULL,
-  `hex-color` VARCHAR(6)  NOT NULL,
+  `hex_color` VARCHAR(6)  NOT NULL,
   PRIMARY KEY (`id`)
 );
 
