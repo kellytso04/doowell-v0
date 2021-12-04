@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { fetchHabits, addHabit } from '../helper.js';
+import { fetchHabits, addHabit, deleteHabit } from '../helper.js';
 import Habit from './Habit.jsx';
 import NewHabitForm from './NewHabitForm.jsx';
 
 const HabitList = () => {
   const [ habits, setHabits ] = useState([]);
   const [ habitCount, setHabitCount ] = useState('');
+  const [ modalVisible, setModalVisible ] = useState(false);
 
   useEffect(() => {
     fetchHabits()
@@ -41,14 +42,41 @@ const HabitList = () => {
   }
 
   // TODO: Handle editing habit
+  const handleEditClick = (text) => {
+    // const body = {
+    //   habitText: text,
+    //   updateText: updateText
+    // }
+    // TODO: call editHabit from helper & pass in body obj
+  }
 
-  // TODO: Handle deleting habit
+  const handleDelete = (text) => {
+    deleteHabit(text)
+      .then( () => {
+        fetchHabits()
+          .then( ({data}) => {
+            setHabitCount(data.length);
+            setHabits(data);
+          })
+          .catch( (err) => {
+            console.error(err);
+          });
+      })
+      .catch( (err) => {
+        console.error(err);
+      })
+  }
 
   return (
     <div className='habits'>
       <ul className='habit-list'>
         { habits.length ? habits.map( (habit, i) => (
-          <Habit text={habit.habit} key={i} no={i} />
+          <Habit
+            text={habit.habit}
+            key={i}
+            no={i}
+            handleDelete={handleDelete}
+          />
         )) : null }
       </ul>
       <br />
