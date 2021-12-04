@@ -21,9 +21,12 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
     setChecked(!checked);
   }
 
-  // const handleDoneClick = () => {
-  //   handleComplete(taskText);
-  // }
+  const handleCompleteClick = () => {
+    const task = document.getElementsByClassName(taskID)[0];
+    task.style.textDecorationLine = 'line-through';
+
+    handleComplete(taskText);
+  }
 
   const handleDeleteClick = () => {
     handleDelete(taskText);
@@ -37,7 +40,7 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
         {category}
       </span>
       <span>
-        <button value='✔️' onClick={(e) => { handleComplete(taskText) }}>✔️</button>
+        <button value='✔️' onClick={handleCompleteClick}>✔️</button>
         <button value='-' onClick={handleDeleteClick}>-</button>
       </span>
     </div>

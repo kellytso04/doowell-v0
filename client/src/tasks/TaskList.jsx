@@ -33,15 +33,15 @@ const TaskList = (props) => {
 
   const handleComplete = (taskText) => {
     completeTask(taskText)
-      .then( () => {
-        fetchTasks()
-          .then( ({data}) => {
-            setTasks(data);
-          })
-          .catch( (err) => {
-            console.error(err);
-          });
-      })
+      // .then( () => {
+      //   fetchTasks()
+      //     .then( ({data}) => {
+      //       setTasks(data);
+      //     })
+      //     .catch( (err) => {
+      //       console.error(err);
+      //     });
+      // })
       .catch( (err) => {
         console.error(err);
       });
