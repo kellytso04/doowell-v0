@@ -15,7 +15,7 @@ const AppContainer = styled.div`
 `
 
 const App = () => {
-  const [ name, setName ] = useState('Testing');
+  const [ name, setName ] = useState('Kelly');
 
   return (
     <div className='app'>
@@ -23,7 +23,11 @@ const App = () => {
       { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
       { name.length ? <TaskList /> : null }
       <br />
+      <hr />
+      <br />
       { name.length ? <ReminderList /> : null }
+      <br />
+      <hr />
       <br />
       { name.length ? <HabitList /> : null }
       </AppContainer>
