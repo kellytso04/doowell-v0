@@ -49,3 +49,53 @@ export function deleteTask(taskText) {
       console.error(err);
     });
 }
+
+export function fetchReminders() {
+  return axios.get('/reminders')
+  .then( (reminders) => {
+    return reminders;
+  })
+  .catch( (err) => {
+    console.error(err);
+  })
+}
+
+export function addReminder(reminderText, hex_color) {
+  const body = {
+    reminderText: reminderText,
+    hex_color: hex_color
+  }
+  return axios.post('/reminders', body)
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+
+export function updateReminder(reminderText, updateText) {
+  const body = {
+    reminderText: reminderText,
+    updateText: updateText
+  }
+
+  return axios.put('/reminders', body)
+    .catch( (err) => {
+      console.error(err);
+    })
+}
+
+export function deleteReminder(reminderText) {
+  const config = {
+    method: 'delete',
+    url: '/reminders',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: { 'reminder': reminderText }
+  };
+
+  return axios(config)
+    .catch( (err) => {
+      console.error(err);
+    });
+}
