@@ -24,6 +24,9 @@ const App = () => {
       <br />
       { name.length ? <ReminderList /> : null }
       </AppContainer>
+      <footer>
+        <a href='https://github.com/kellytso04/doowell'>View on GitHub</a>
+      </footer>
     </div>
   )
 }
