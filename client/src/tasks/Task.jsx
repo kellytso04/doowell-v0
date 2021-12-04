@@ -9,8 +9,10 @@ const Task = ( {taskText, category, color, no, handleDelete} ) => {
     const currentTask = document.getElementsByClassName(taskID)[0];
     if (checked) {
       currentTask.style.opacity = '50%';
+      currentTask.style.textDecorationLine = 'line-through';
     } else {
       currentTask.style.opacity = '100%';
+      currentTask.style.textDecorationLine = 'none';
     }
   }, [checked]);
 
@@ -18,7 +20,12 @@ const Task = ( {taskText, category, color, no, handleDelete} ) => {
     setChecked(!checked);
   }
 
-  const handleClick = () => {
+  const handleDoneClick = () => {
+    // TODO: Updates task's 'Completed' status in db
+
+  }
+
+  const handleDeleteClick = () => {
     handleDelete(taskText);
   }
 
@@ -30,12 +37,8 @@ const Task = ( {taskText, category, color, no, handleDelete} ) => {
         {category}
       </span>
       <span>
-        <input
-          type='checkbox'
-          checked={checked}
-          onChange={handleChange}
-        />
-        <button value='Delete task' onClick={handleClick}>Delete task</button>
+        <button value='✔️' onClick={handleDoneClick}>✔️</button>
+        <button value='-' onClick={handleDeleteClick}>-</button>
       </span>
     </div>
   )
