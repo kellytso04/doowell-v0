@@ -20,7 +20,7 @@ const App = () => {
     <div className='app'>
       <AppContainer >
       { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
-      { name.length && <TaskList /> }
+      { name.length ? <TaskList /> : null }
 
       </AppContainer>
     </div>
