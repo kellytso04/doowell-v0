@@ -6,6 +6,7 @@ import NamePrompt from './welcome/NamePrompt.jsx';
 import Dashboard from './welcome/Dashboard.jsx';
 import TaskList from './tasks/TaskList.jsx';
 import ReminderList from './reminders/ReminderList.jsx';
+import HabitList from './habits/HabitList.jsx';
 
 const AppContainer = styled.div`
   border: #f7d088 5px solid;
@@ -23,6 +24,8 @@ const App = () => {
       { name.length ? <TaskList /> : null }
       <br />
       { name.length ? <ReminderList /> : null }
+      <br />
+      { name.length ? <HabitList /> : null }
       </AppContainer>
       <footer>
         <a href='https://github.com/kellytso04/doowell'>View on GitHub</a>
