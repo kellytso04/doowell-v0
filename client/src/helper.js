@@ -60,17 +60,12 @@ export function fetchReminders() {
   })
 }
 
-export function addReminder(reminderText, hex_color) {
-  const body = {
-    reminderText: reminderText,
-    hex_color: hex_color
-  }
-  return axios.post('/reminders', body)
+export function addReminder(reminderText) {
+  return axios.post('/reminders', {reminder: reminderText})
     .catch( (err) => {
       console.error(err);
     });
 }
-
 
 export function updateReminder(reminderText, updateText) {
   const body = {
@@ -98,4 +93,15 @@ export function deleteReminder(reminderText) {
     .catch( (err) => {
       console.error(err);
     });
+}
+
+export function completeReminder(reminderText) {
+  const body = {
+    reminderText: reminderText
+  }
+
+  return axios.put('/reminders/complete', body)
+    .catch( (err) => {
+      console.error(err);
+    })
 }
