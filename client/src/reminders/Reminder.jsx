@@ -14,8 +14,8 @@ const Reminder = ( {text, handleComplete, no} ) => {
 
   return (
     <div className='reminder'>
-      <span className={reminderID}>{text}</span>
       <button onClick={handleClick}>Done</button>
+      <span className={reminderID}>{text}</span>
     </div >
   )
 }
