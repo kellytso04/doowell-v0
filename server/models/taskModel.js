@@ -1,4 +1,4 @@
-const sql = require('mysql');
+const sql = require('mysql2');
 const client = require('../../db/config.js');
 
 module.exports = {
