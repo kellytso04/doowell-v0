@@ -4,7 +4,7 @@ import Clock from './Clock.jsx';
 const Dashboard = ( {name} ) => {
   return (
     <div className='dashboard'>
-      <h1>Welcome, {name}</h1>
+      <h1>Welcome back, {name}</h1>
       <Clock />
 
       <br />
