@@ -79,15 +79,19 @@ const ReminderList = (props) => {
   }
 
   return (
-    <RemindersContainer className='reminders'>
+    <div className='reminders'>
       <ul className='reminder-list'>
         { reminders.length ? reminders.map( (reminder, i) => (
-          <Reminder text={reminder.reminder} handleComplete={handleComplete} key={i} no={i}/>
+          <Reminder
+            text={reminder.reminder}
+            handleComplete={handleComplete}
+            key={i}
+            no={i}/>
         )) : null }
       </ul>
       <br />
       <NewReminderForm addReminder={handleAdd} />
-    </RemindersContainer >
+    </div >
 
   )
 }
