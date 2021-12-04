@@ -5,9 +5,15 @@ DROP TABLE IF EXISTS `habits`;
 CREATE TABLE `habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `habit` VARCHAR(1000) NOT NULL,
-  `date` DATE NOT NULL,
-  `completed` INTEGER NOT NULL DEFAULT 0,
-  `hex_color` VARCHAR(6) NOT NULL,
+  `date` VARCHAR(50) NOT NULL,
+  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `tracked_habits`;
+CREATE TABLE `tracked_habits` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `habit` VARCHAR(500) UNIQUE NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -18,7 +24,7 @@ CREATE TABLE `tasks` (
   `task` VARCHAR(1000) NOT NULL,
   `category` VARCHAR(200) NOT NULL,
   `completed` INTEGER NOT NULL DEFAULT 0,
-  `hex-color` VARCHAR(6) NOT NULL,
+  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
 
@@ -28,12 +34,7 @@ DROP TABLE IF EXISTS `reminders`;
 CREATE TABLE `reminders` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `reminder` VARCHAR(2000) NOT NULL,
-  `day` VARCHAR(10) NULL DEFAULT NULL,
-  `time` TIME NULL DEFAULT NULL,
-  `location` VARCHAR(100) NULL DEFAULT NULL,
-  `priority` INTEGER NULL DEFAULT NULL,
-  `details` VARCHAR(2000) NULL DEFAULT NULL,
-  `hex-color` VARCHAR(6)  NOT NULL,
+  `completed` INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 );
 
