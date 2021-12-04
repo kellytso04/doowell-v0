@@ -51,7 +51,7 @@ const TaskList = (props) => {
   return (
     <div>
       <ul className='task-list'>
-        { tasks.length && tasks.map( (task, i) => {
+        { tasks.length ? tasks.map( (task, i) => {
           return (
             <Task
               taskText={task.task}
@@ -61,7 +61,7 @@ const TaskList = (props) => {
               handleDelete={handleDelete}
               />
           )
-        }) }
+        }) : <div>Add a task to track it!</div>}
       </ul>
       <NewTaskForm handleAdd={handleAdd}/>
     </div>
