@@ -58,6 +58,7 @@ const TaskList = (props) => {
               category={task.category}
               color={`#${task.hex_color}`}
               key={i}
+              no={i}
               handleDelete={handleDelete}
               />
           )
