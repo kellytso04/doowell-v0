@@ -31,7 +31,7 @@ const NewTaskForm = ( {handleAdd} ) => {
       <br />
       <input type='text' placeholder='Task' value={taskText} onChange={handleTaskChange} />
       <input type='text' placeholder='Category' value={category} onChange={handleCategoryChange} />
-      <input type='submit'/>
+      <input type='submit' value='+'/>
     </form>
   )
 }
