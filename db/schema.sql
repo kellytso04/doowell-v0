@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS `habits`;
 CREATE TABLE `habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `habit` VARCHAR(1000) NOT NULL,
-  `date` DATE NOT NULL,
+  `date` VARCHAR(50) NOT NULL,
   `hex_color` VARCHAR(6) DEFAULT 'f7d088',
   PRIMARY KEY (`id`)
 );
