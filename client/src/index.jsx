@@ -14,8 +14,7 @@ const AppContainer = styled.div`
 `
 
 const App = () => {
-  const [ name, setName ] = useState('');
-  const [ dashboardVisible, setDashboardVisible ] = useState(false);
+  const [ name, setName ] = useState('Testing');
 
   return (
     <div className='app'>
