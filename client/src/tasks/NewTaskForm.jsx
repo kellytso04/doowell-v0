@@ -21,14 +21,16 @@ const NewTaskForm = ( {handleAdd} ) => {
     }
 
     handleAdd(taskObject);
+    setTaskText('');
+    setCategory('');
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <label>Add a new task</label>
       <br />
-      <input type='text' placeholder='Task' onChange={handleTaskChange} />
-      <input type='text' placeholder='Category' onChange={handleCategoryChange} />
+      <input type='text' placeholder='Task' value={taskText} onChange={handleTaskChange} />
+      <input type='text' placeholder='Category' value={category} onChange={handleCategoryChange} />
       <input type='submit'/>
     </form>
   )
