@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import NamePrompt from './welcome/NamePrompt.jsx';
 import Dashboard from './welcome/Dashboard.jsx';
+import TaskList from './tasks/TaskList.jsx';
 
 const AppContainer = styled.div`
   border: #f7d088 5px solid;
@@ -19,7 +20,7 @@ const App = () => {
     <div className='app'>
       <AppContainer >
       { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
-
+      {/* { name.length ? <TaskList /> : null } */}
 
       </AppContainer>
     </div>
