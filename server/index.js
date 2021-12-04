@@ -50,9 +50,10 @@ app.put('/habits', (req, res) => {
 });
 
 app.delete('/habits', (req, res) => {
-  const queryString = `DELETE FROM habits WHERE habit = ${req.body.data.habit}`;
+  const queryString = `DELETE FROM habits WHERE habit=(?)`;
+  const queryArg = [req.body.habit]
 
-  return client.query(queryString, (err) => {
+  return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
     } else {
@@ -87,7 +88,7 @@ app.post('/tasks', (req, res) => {
 });
 
 app.put('/tasks', (req, res) => {
-  const queryString = `UPDATE tasks SET task = ${req.body.updateText} WHERE task = ${req.body.task}`;
+  const queryString = `UPDATE tasks SET task = ${req.body.updateText} WHERE task = ${req.body.taskText}`;
 
   return client.query(queryString, (err) => {
     if (err) {
@@ -99,9 +100,10 @@ app.put('/tasks', (req, res) => {
 });
 
 app.delete('/tasks', (req, res) => {
-  const queryString = `DELETE FROM tasks WHERE task = ${req.body.data.task}`;
+  const queryString = `DELETE FROM tasks WHERE task=(?)`;
+  const queryArg = [req.body.task]
 
-  return client.query(queryString, (err) => {
+  return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
     } else {
@@ -148,9 +150,10 @@ app.put('/reminders', (req, res) => {
 });
 
 app.delete('/reminders', (req, res) => {
-  const queryString = `DELETE FROM reminders WHERE reminder = ${req.body.data.reminder}`;
+  const queryString = `DELETE FROM reminders WHERE reminder=(?)`;
+  const queryArg = [req.body.reminder]
 
-  return client.query(queryString, (err) => {
+  return client.query(queryString, queryArg, (err) => {
     if (err) {
       console.error(err);
     } else {
