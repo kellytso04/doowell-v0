@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import Task from './Task.jsx';
 
 const TaskList = (props) => {
@@ -7,22 +8,21 @@ const TaskList = (props) => {
 
   useEffect(() => {
     return axios.get('/tasks')
-      .then( (tasks) => {
-        setTasks(tasks);
-        console.log('Number of tasks: ', tasks.length);
+      .then( ({data}) => {
+        setTasks(data);
+        console.log('Number of tasks: ', data.length);
       })
       .catch( (err) => {
         console.error(err);
         console.error('Failed to retrieve tasks');
       })
-  }, [tasks])
+  }, []);
 
   return (
     <ul className='task-list'>
-      { tasks.length && tasks.map( (task) => {
-        console.log('current task: ', task);
+      { tasks.length && tasks.map( (task, i) => {
         return (
-          <Task />
+          <Task task={task.task} category={task.category} color={`#${task.hex_color}` key={i}}/>
         )
       }) }
     </ul>
