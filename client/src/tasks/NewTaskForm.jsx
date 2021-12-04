@@ -1,11 +1,35 @@
 import React, { useState, useEffect } from 'react';
 
-const NewTaskForm = () => {
+const NewTaskForm = ( {handleAdd} ) => {
+  const [ taskText, setTaskText ] = useState('');
+  const [ category, setCategory ] = useState('');
+
+  const handleTaskChange = (e) => {
+    setTaskText(e.target.value);
+  }
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const taskObject = {
+      taskText: taskText,
+      category: category
+    }
+
+    handleAdd(taskObject);
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>Add a new task</label>
-      <input type='text' placeholder='Task' />
-      <input type='text' placeholder='Category' />
+      <br />
+      <input type='text' placeholder='Task' onChange={handleTaskChange} />
+      <input type='text' placeholder='Category' onChange={handleCategoryChange} />
+      <input type='submit'/>
     </form>
   )
 }

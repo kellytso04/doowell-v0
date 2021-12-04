@@ -8,7 +8,6 @@ import NewTaskForm from './NewTaskForm.jsx';
 const TaskList = (props) => {
   const [ tasks, setTasks ] = useState([]);
 
-  // On mount, fetch data
   useEffect(() => {
     fetchTasks()
       .then( ({data}) => {
@@ -37,7 +36,16 @@ const TaskList = (props) => {
   }
 
   const handleAdd = (taskObject) => {
-
+    addTask(taskObject)
+      .then( () => {
+        fetchTasks()
+          .then( ({data}) => {
+            setTasks(data);
+          })
+          .catch( (err) => {
+            console.error(err);
+          });
+      });
   }
 
   return (
@@ -55,7 +63,7 @@ const TaskList = (props) => {
           )
         }) }
       </ul>
-      <NewTaskForm />
+      <NewTaskForm handleAdd={handleAdd}/>
     </div>
   )
 }

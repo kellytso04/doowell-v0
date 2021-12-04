@@ -7,7 +7,7 @@ const Task = ( {taskText, category, color, handleDelete} ) => {
   useEffect( () => {
     const currentTask = document.getElementsByClassName('task')[0];
     if (checked) {
-      currentTask.style.opacity = '75%';
+      currentTask.style.opacity = '50%';
     } else {
       currentTask.style.opacity = '100%';
     }

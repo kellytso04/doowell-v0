@@ -10,9 +10,9 @@ export function fetchTasks() {
   })
 }
 
-export function addTask( {taskText, category, hex_color} ) {
+export function addTask( {taskText, category, hex_color = 'd5b8db'} ) {
   const body = {
-    task: taskText,
+    taskText: taskText,
     category: category,
     hex_color: hex_color
   }
