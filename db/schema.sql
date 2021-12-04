@@ -14,9 +14,10 @@ CREATE TABLE `habits` (
 DROP TABLE IF EXISTS `tracked-habits`;
 CREATE TABLE `tracked-habits` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
-  `habit` VARCHAR(1000) NOT NULL,
+  `habit` VARCHAR(500) UNIQUE NOT NULL,
   PRIMARY KEY (`id`)
-)
+);
+
 
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
