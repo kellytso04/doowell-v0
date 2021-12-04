@@ -150,10 +150,25 @@ export function editHabit(habitText, updateText) {
     });
 }
 
-export function completeHabit() {
-
+export function completeHabit(habitObject) {
+  return axios.post('/habits', habitObject)
+    .catch( (err) => {
+      console.error(err);
+    });
 }
 
-export function deleteHabit() {
+export function deleteHabit(text) {
+  const config = {
+    method: 'delete',
+    url: '/tracked_habits',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: { 'habit': text }
+  };
 
+  return axios(config)
+    .catch( (err) => {
+      console.error(err);
+    });
 }
