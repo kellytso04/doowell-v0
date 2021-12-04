@@ -10,7 +10,6 @@ module.exports = {
       if (err) {
         console.error(err);
       }
-        console.log('Received back: ', habits);
         return habits;
     });
   },
