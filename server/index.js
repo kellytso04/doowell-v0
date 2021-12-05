@@ -163,7 +163,7 @@ app.post('/tasks', (req, res) => {
 });
 
 app.put('/tasks', (req, res) => {
-  const queryString = `UPDATE tasks SET task = ${req.body.updateText} WHERE task = ${req.body.taskText}`;
+  const queryString = `UPDATE tasks SET task = ${req.body.updateText} WHERE id = ${req.body.taskID}`;
 
   return client.query(queryString, (err) => {
     if (err) {
@@ -176,8 +176,8 @@ app.put('/tasks', (req, res) => {
 });
 
 app.put('/tasks/complete', (req, res) => {
-  const queryString = `UPDATE tasks SET completed = 1 WHERE task = (?)`;
-  const queryArgs = [ req.body.taskText ];
+  const queryString = `UPDATE tasks SET completed = 1 WHERE id = (?)`;
+  const queryArgs = [ req.body.taskID ];
 
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
@@ -190,8 +190,8 @@ app.put('/tasks/complete', (req, res) => {
 })
 
 app.delete('/tasks', (req, res) => {
-  const queryString = `DELETE FROM tasks WHERE task=(?)`;
-  const queryArg = [req.body.task]
+  const queryString = `DELETE FROM tasks WHERE id=(?)`;
+  const queryArg = [req.body.taskID]
 
   return client.query(queryString, queryArg, (err) => {
     if (err) {
@@ -243,7 +243,7 @@ app.post('/reminders', (req, res) => {
 });
 
 app.put('/reminders', (req, res) => {
-  const queryString = `UPDATE reminders SET reminder = ${req.body.updateText} WHERE reminder = ${req.body.reminder}`;
+  const queryString = `UPDATE reminders SET reminder = ${req.body.updateText} WHERE id = ${req.body.reminderID}`;
 
   return client.query(queryString, (err) => {
     if (err) {
@@ -256,8 +256,8 @@ app.put('/reminders', (req, res) => {
 });
 
 app.put('/reminders/complete', (req, res) => {
-  const queryString = `UPDATE reminders SET completed = 1 WHERE reminder = (?)`;
-  const queryArgs = [ req.body.reminderText ];
+  const queryString = `UPDATE reminders SET completed = 1 WHERE id = (?)`;
+  const queryArgs = [ req.body.reminderID ];
 
   return client.query(queryString, queryArgs, (err) => {
     if (err) {
@@ -270,8 +270,8 @@ app.put('/reminders/complete', (req, res) => {
 })
 
 app.delete('/reminders', (req, res) => {
-  const queryString = `DELETE FROM reminders WHERE reminder=(?)`;
-  const queryArg = [req.body.reminder]
+  const queryString = `DELETE FROM reminders WHERE id=(?)`;
+  const queryArg = [req.body.ID]
 
   return client.query(queryString, queryArg, (err) => {
     if (err) {
