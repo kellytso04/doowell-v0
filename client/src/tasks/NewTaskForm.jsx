@@ -7,6 +7,7 @@ const StyledTaskForm = styled.form`
   width: 40%;
   justify-content: center;
   margin: auto;
+  margin-top: 10px;
   margin-bottom: 10px;
   border: white 2px solid;
   padding: 5px;

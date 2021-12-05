@@ -8,8 +8,11 @@ const StyledReminderList = styled.div`
   align-content: center;
   margin: 0;
   width: 50%;
+  height: 100%;
+  overflow-y: auto;
   border: white solid 2px;
   margin-left: 4px;
+  scroll-behavior: smooth;
 `
 
 const ReminderList = (props) => {
@@ -41,8 +44,8 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleEdit = (reminderText, updateText) => {
-    updateReminder(reminderText, updateText)
+  const handleEdit = (reminderID, updateText) => {
+    updateReminder(reminderID, updateText)
       .then( () => {
         fetchReminders()
         .then( ({data}) => {
@@ -57,8 +60,8 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleDelete = (reminderText) => {
-    deleteReminder(reminderText)
+  const handleDelete = (reminderID) => {
+    deleteReminder(reminderID)
       .then( () => {
         fetchReminders()
           .then( ({data}) => {
@@ -73,8 +76,8 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleComplete = (reminderText) => {
-    completeReminder(reminderText)
+  const handleComplete = (reminderID) => {
+    completeReminder(reminderID)
       .catch( (err) => {
         console.error(err);
       })
@@ -88,6 +91,7 @@ const ReminderList = (props) => {
       <ul className='reminder-list' style={{padding: '0'}}>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder
+            id={reminder.id}
             text={reminder.reminder}
             handleComplete={handleComplete}
             key={i}

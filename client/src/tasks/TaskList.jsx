@@ -6,11 +6,17 @@ import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
 
 const StyledTaskList = styled.div`
-  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 50%;
+  height: 100%;
+  overflow-y: auto;
   margin: 0;
   border: white solid 2px;
   margin-right: 4px;
+  scroll-behavior: smooth;
 `
 
 const TaskList = (props) => {
@@ -71,18 +77,18 @@ const TaskList = (props) => {
         { tasks.length ? tasks.map( (task, i) => {
           return (
             <Task
+              id={task.id}
               taskText={task.task}
               category={task.category}
               color={`#${task.hex_color}`}
               key={i}
-              no={i}
               handleComplete={handleComplete}
               handleDelete={handleDelete}
               />
           )
-        }) : <div>Add a task to track it!</div>}
+        }) : <div style={{margin: '0'}}>Add a task to track it!</div>}
       </div>
-      <NewTaskForm handleAdd={handleAdd}/>
+      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}}/>
     </ StyledTaskList>
   )
 }

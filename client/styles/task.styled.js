@@ -4,14 +4,15 @@ export const TaskContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   fontFamily: 'Varela Round', sans-serif;
-  margin-right: 20px;
+  border: 1px white ridge;
   padding: 15px;
 `
 
 export const TextContainer = styled.span`
   float: left;
+  font-family: 'Varela Round', sans-serif;
 `
 
 export const ButtonContainer = styled.span`

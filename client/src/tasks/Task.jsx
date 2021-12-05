@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { fetchTasks, deleteTask } from '../helper.js';
 import { TaskContainer, TextContainer, ButtonContainer } from '../../styles/task.styled.js';
 
-const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) => {
+const Task = ( {id, taskText, category, color, handleComplete, handleDelete} ) => {
   const [ checked, setChecked ] = useState(false);
 
-  const taskID = `task-${no}`;
-  const taskTextID= `task-text-${no}`;
+  const taskID = `task-${id}`;
+  const taskTextID= `task-text-${id}`;
 
   useEffect( () => {
     const currentTask = document.getElementsByClassName(taskID)[0];
@@ -37,8 +37,8 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
   return (
     <TaskContainer className={taskID} >
       <TextContainer id={taskTextID}>
-        <p style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '15px'}}>{taskText.toUpperCase()}</p>
-        <span className='task-category' style={{'fontFamily': 'EB Garamond', 'fontSize': '12px'}}> {category.toUpperCase()} </span>
+        <span style={{fontSize: '15px'}}>{taskText.toUpperCase()}</span>
+        <span className='task-category' style={{fontSize: '14px', opacity: '80%'}}>&nbsp; | &nbsp; [ {category.toLowerCase()} ] </span>
       </ TextContainer>
       <ButtonContainer id='task-buttons'>
         <button value='✔️' onClick={handleCompleteClick}>✔️</button>

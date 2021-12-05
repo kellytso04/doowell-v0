@@ -28,7 +28,7 @@ export const TaskReminderContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 45%;
+  width: 50%;
 `
 
 export const HabitContainer = styled.div`
