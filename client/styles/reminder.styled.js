@@ -6,6 +6,7 @@ export const ReminderContainer = styled.div`
   justify-content: space-between;
   align-items: baseline;
   fontFamily: 'Varela Round', sans-serif;
+  padding: 15px;
 `
 
 export const TextContainer = styled.span`

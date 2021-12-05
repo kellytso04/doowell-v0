@@ -7,6 +7,7 @@ export const TaskContainer = styled.div`
   align-items: baseline;
   fontFamily: 'Varela Round', sans-serif;
   margin-right: 20px;
+  padding: 15px;
 `
 
 export const TextContainer = styled.span`

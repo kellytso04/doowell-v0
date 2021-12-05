@@ -7,6 +7,7 @@ import NewReminderForm from './NewReminderForm.jsx';
 const StyledReminderList = styled.div`
   align-content: center;
   margin: 0;
+  width: 50%;
   border: white solid 2px;
   margin-left: 4px;
 `

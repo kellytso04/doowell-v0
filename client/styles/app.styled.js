@@ -10,6 +10,13 @@ export const AppContainer = styled.div`
 export const GroupAContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+`
+
+export const GroupBContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   padding: 10px;
 `
@@ -20,7 +27,8 @@ export const TaskReminderContainer = styled.div`
   padding: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  width: 45%;
 `
 
 export const HabitContainer = styled.div`

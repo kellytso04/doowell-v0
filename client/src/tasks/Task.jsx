@@ -37,8 +37,8 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
   return (
     <TaskContainer className={taskID} >
       <TextContainer id={taskTextID}>
-        <div style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '15px'}}>{taskText.toUpperCase()}</div>
-        <div className='task-category' style={{'fontFamily': 'EB Garamond', 'fontSize': '12px'}}> {category.toUpperCase()} </div>
+        <p style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '15px'}}>{taskText.toUpperCase()}</p>
+        <span className='task-category' style={{'fontFamily': 'EB Garamond', 'fontSize': '12px'}}> {category.toUpperCase()} </span>
       </ TextContainer>
       <ButtonContainer id='task-buttons'>
         <button value='✔️' onClick={handleCompleteClick}>✔️</button>

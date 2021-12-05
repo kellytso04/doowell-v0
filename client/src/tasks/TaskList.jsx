@@ -7,7 +7,8 @@ import NewTaskForm from './NewTaskForm.jsx';
 
 const StyledTaskList = styled.div`
   align-content: center;
-  margin: auto;
+  width: 50%;
+  margin: 0;
   border: white solid 2px;
   margin-right: 4px;
 `

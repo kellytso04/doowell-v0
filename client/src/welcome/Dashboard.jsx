@@ -8,9 +8,9 @@ const Dashboard = ( {name} ) => {
       <div className='welcome-msg'>Welcome back, {name}</div>
       <hr />
       <Clock />
+      {/* <br />
       <br />
-      <br />
-      You have # unfinished tasks and # reminders.
+      You have # unfinished tasks and # reminders. */}
     </DashboardContainer>
   )
 }
