@@ -135,6 +135,19 @@ app.get('/tasks', (req, res) => {
   });
 });
 
+app.get('/tasks/incomplete', (req, res) => {
+  const queryString = `SELECT * FROM tasks WHERE completed = 0`;
+
+  return client.query(queryString, (err, incompleteTasks) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).send(incompleteTasks);
+    }
+  });
+});
+
 app.post('/tasks', (req, res) => {
   const queryString = `INSERT INTO tasks (task, category, hex_color) VALUES(?, ?, ?)`;
   const queryArgs = [req.body.taskText, req.body.category, req.body.hex_color];
@@ -199,6 +212,19 @@ app.get('/reminders', (req, res) => {
       res.sendStatus(500);
     }
       res.status(200).send(reminders);
+  });
+});
+
+app.get('/reminders/incomplete', (req, res) => {
+  const queryString = `SELECT * FROM reminders WHERE completed = 0`;
+
+  return client.query(queryString, (err, incompleteReminders) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).send(incompleteReminders);
+    }
   });
 });
 
@@ -285,7 +311,7 @@ app.post('/notes', (req, res) => {
 });
 
 app.put('/notes', (req, res) => {
-  const queryString = `UPDATE notes WHERE SET notes = (?)`;
+  const queryString = `UPDATE notes SET notes = (?)`;
   const queryArgs = [ req.body.notes ];
 
   client.query(queryString, queryArgs, (err) => {
