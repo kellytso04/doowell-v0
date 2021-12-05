@@ -2,4 +2,5 @@ node_modules
 .DS_Store
 bundle.js
 db/config.js
-feedback
+feedback.txt
+design.txt

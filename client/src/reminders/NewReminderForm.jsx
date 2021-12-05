@@ -1,4 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
+const ReminderForm = styled.form`
+  display: flex;
+  align-text: center;
+  margin: auto;
+`
 
 const NewReminderForm = ( {addReminder} ) => {
   const [ reminderText, setReminderText ] = useState('');
@@ -10,8 +17,7 @@ const NewReminderForm = ( {addReminder} ) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Add a new reminder</label>
+    <ReminderForm className='reminder-form'>
       <br />
       <input
         type='text'
@@ -19,8 +25,8 @@ const NewReminderForm = ( {addReminder} ) => {
         value={reminderText}
         onChange={(e) => { setReminderText(e.target.value) }}
       />
-      <input type='submit' value='+' />
-    </form>
+      <button type='submit' value='+' onClick={handleSubmit}>+</button>
+    </ReminderForm>
   )
 }
 

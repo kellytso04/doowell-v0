@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { fetchTasks, deleteTask } from '../helper.js';
+import { TaskContainer, TextContainer, ButtonContainer } from '../../styles/task.styled.js';
 
 const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) => {
   const [ checked, setChecked ] = useState(false);
@@ -33,17 +34,16 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
   }
 
   return (
-    <div className={taskID} style={{color: `${color}`}}>
-      <span className='task-description'>
-        {taskText}
-        <br />
-        {category}
-      </span>
-      <span>
+    <TaskContainer className={taskID} >
+      <TextContainer>
+        <div className='task-text' style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '20px'}}>{taskText.toUpperCase()}</div>
+        <div className='task-category' style={{'fontFamily': 'EB Garamond'}}> {category.toUpperCase()} </div>
+      </ TextContainer>
+      <ButtonContainer id='task-buttons'>
         <button value='✔️' onClick={handleCompleteClick}>✔️</button>
         <button value='-' onClick={handleDeleteClick}>-</button>
-      </span>
-    </div>
+      </ ButtonContainer>
+    </TaskContainer >
   )
 }
 

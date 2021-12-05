@@ -17,7 +17,6 @@ const Habit = ({text, no, handleDelete}) => {
     completeBtn.disabled = true;
 
     const habit = document.getElementById(habitID);
-    console.log('HABIT: ', habit);
     habit.style.opacity = '50%';
   }
 

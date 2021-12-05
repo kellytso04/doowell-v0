@@ -80,6 +80,9 @@ const ReminderList = (props) => {
 
   return (
     <div className='reminders'>
+        <div className='reminders-title' style={{textAlign: 'center'}}>
+          Reminders
+        </div>
       <ul className='reminder-list'>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder

@@ -1,8 +1,55 @@
 body {
+  background-color: #A8D0E6;
+  font-family: 'EB Garamond', serif;
+  color: white;
   text-align: left;
+  min-width: 99%;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  margin: auto;
+}
+
+input {
+  height: 27px;
+  border-radius: 3px;
+  transition: 0.2s all;
+}
+
+input.hover {
+  box-shadow: 0px 4px 20px 0px white;
 }
 
 .name-prompt {
-  color: burlywood;
+  color: white;
   text-align: center;
 }
+
+.welcome-msg {
+  font-family: 'Varela Round', sans-serif;
+  font-size: 40px;
+}
+
+.tasks-title, .reminders-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 30px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  /* float: bottom-right;
+  margin-right: 5px;
+  margin-top: 5px; */
+}
+
+.repo-link {
+  font-family: 'Varela Round', sans-serif;
+  color: whitesmoke;
+}
+
+

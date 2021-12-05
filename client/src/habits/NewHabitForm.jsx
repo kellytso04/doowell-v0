@@ -10,16 +10,15 @@ const NewHabitForm = ( {handleAdd} ) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Add a new habit</label>
+    <form className='habit-form'>
       <br />
       <input
         type='text'
-        placeholder='Everyday, I will...'
+        placeholder='Making a goal to...'
         value={habitText}
         onChange={(e) => { setHabitText(e.target.value) }}
       />
-      <input type='submit' value='+' />
+      <button type='submit' value='+' onClick={handleSubmit}>+</button>
     </form>
   )
 }

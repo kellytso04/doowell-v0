@@ -1,16 +1,17 @@
 import React from 'react';
+import { DashboardContainer } from '../../styles/dashboard.styled.js';
 import Clock from './Clock.jsx';
 
 const Dashboard = ( {name} ) => {
   return (
-    <div className='dashboard'>
-      <h1>Welcome back, {name}</h1>
+    <DashboardContainer className='dashboard'>
+      <div className='welcome-msg'>Welcome back, {name}.</div>
+      <hr />
       <Clock />
-
       <br />
       <br />
       You have # unfinished tasks and # reminders.
-    </div>
+    </DashboardContainer>
   )
 }
 

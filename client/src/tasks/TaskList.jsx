@@ -5,6 +5,10 @@ import { fetchTasks, addTask, updateTask, completeTask, deleteTask } from '../he
 import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
 
+const StyledTaskList = styled.div`
+  align-content: center;
+`
+
 const TaskList = (props) => {
   const [ tasks, setTasks ] = useState([]);
 
@@ -55,7 +59,10 @@ const TaskList = (props) => {
   }
 
   return (
-    <div>
+    <StyledTaskList className='task-list' >
+      <div className='tasks-title' style={{textAlign: 'center'}}>
+        Tasks
+      </div>
       <ul className='task-list'>
         { tasks.length ? tasks.map( (task, i) => {
           return (
@@ -72,7 +79,7 @@ const TaskList = (props) => {
         }) : <div>Add a task to track it!</div>}
       </ul>
       <NewTaskForm handleAdd={handleAdd}/>
-    </div>
+    </ StyledTaskList>
   )
 }
 
