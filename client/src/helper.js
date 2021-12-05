@@ -172,3 +172,27 @@ export function deleteHabit(text) {
       console.error(err);
     });
 }
+
+export function fetchNotes() {
+  return axios.get('/notes')
+    .then( (notes) => {
+      return notes;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function postNote(notes) {
+  return axios.post('/notes', { notes: notes })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function editNote(notes) {
+  return axios.put('/notes', {notes: notes})
+    .catch( (err) => {
+      console.error(err);
+    });
+}
