@@ -257,6 +257,47 @@ app.delete('/reminders', (req, res) => {
   });
 });
 
+app.get('/notes', (req, res) => {
+  const queryString = `SELECT * FROM notes`;
+
+  client.query(queryString, (err, notes) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).send(notes[0]);
+    }
+  });
+});
+
+app.post('/notes', (req, res) => {
+  const queryString = `INSERT INTO notes (notes) values(?)`;
+  const queryArgs = [ req.body.notes ];
+
+  client.query(queryString, queryArgs, (err) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
+    }
+  });
+});
+
+app.put('/notes', (req, res) => {
+  const queryString = `UPDATE notes WHERE SET notes = (?)`;
+  const queryArgs = [ req.body.notes ];
+
+  client.query(queryString, queryArgs, (err) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
+    }
+  });
+});
+
 // ------------------------------------------------------------------------------------
 app.listen(8080, (err) => {
   if (err) {
