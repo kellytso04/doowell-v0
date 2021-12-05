@@ -27,18 +27,19 @@ const Task = ( {id, taskText, category, color, handleComplete, handleDelete} ) =
     const task = document.getElementById(taskTextID);
     task.style.textDecorationLine = 'line-through';
 
-    handleComplete(taskText);
+    handleComplete(id);
   }
 
   const handleDeleteClick = () => {
-    handleDelete(taskText);
+    handleDelete(id);
   }
 
   return (
     <TaskContainer className={taskID} >
       <TextContainer id={taskTextID}>
         <span style={{fontSize: '15px'}}>{taskText.toUpperCase()}</span>
-        <span className='task-category' style={{fontSize: '14px', opacity: '80%'}}>&nbsp; | &nbsp; [ {category.toLowerCase()} ] </span>
+        { category.length ? <span className='task-category' style={{fontSize: '14px', opacity: '80%'}}>&nbsp; | &nbsp; [ {category.toLowerCase()} ] </span>
+        : null }
       </ TextContainer>
       <ButtonContainer id='task-buttons'>
         <button value='✔️' onClick={handleCompleteClick}>✔️</button>

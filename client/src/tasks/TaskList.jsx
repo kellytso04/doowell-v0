@@ -14,7 +14,7 @@ const StyledTaskList = styled.div`
   height: 100%;
   overflow-y: auto;
   margin: 0;
-  border: white solid 2px;
+  border: #A8D0E6 solid 2px;
   margin-right: 4px;
   scroll-behavior: smooth;
 `

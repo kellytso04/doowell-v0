@@ -5,9 +5,10 @@ export const TaskContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  fontFamily: 'Varela Round', sans-serif;
-  border: 1px white ridge;
+  font-family: 'Varela Round', sans-serif;
+  border: 1px #F76C6C ridge;
   padding: 15px;
+  margin: 5px;
 `
 
 export const TextContainer = styled.span`

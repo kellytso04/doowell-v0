@@ -5,12 +5,15 @@ import Reminder from './Reminder.jsx';
 import NewReminderForm from './NewReminderForm.jsx';
 
 const StyledReminderList = styled.div`
-  align-content: center;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 50%;
   height: 100%;
   overflow-y: auto;
-  border: white solid 2px;
+  margin: 0;
+  border: #A8D0E6 solid 2px;
   margin-left: 4px;
   scroll-behavior: smooth;
 `
@@ -99,7 +102,7 @@ const ReminderList = (props) => {
         )) : null }
       </ul>
       <br />
-      <NewReminderForm addReminder={handleAdd} />
+      <NewReminderForm addReminder={handleAdd} style={{alignSelf: 'flex-end'}} />
     </StyledReminderList >
 
   )

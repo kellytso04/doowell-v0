@@ -4,13 +4,17 @@ export const ReminderContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
-  fontFamily: 'Varela Round', sans-serif;
+  align-items: center;
+  width: 100%;
+  font-family: 'Varela Round', sans-serif;
+  border: 1px #F76C6C ridge;
   padding: 15px;
+  margin: 5px;
 `
 
 export const TextContainer = styled.span`
   float: left;
+  font-family: 'Varela Round', sans-serif;
 `
 
 export const ButtonContainer = styled.span`

@@ -22,12 +22,16 @@ export const GroupBContainer = styled.div`
 `
 
 export const TaskReminderContainer = styled.div`
-  background-color: #24305E;
-  border: #374785 5px solid;
-  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background-color: white;
+  border: #24305E 5px solid;
+  color: #374785;
+  padding: 15px;
+  height: 50%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
   width: 50%;
 `
 
