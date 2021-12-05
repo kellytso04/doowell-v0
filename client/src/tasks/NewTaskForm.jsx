@@ -1,4 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
+const StyledTaskForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 10px;
+  border: white 2px solid;
+  padding: 5px;
+  border-radius: 10%;
+`
 
 const NewTaskForm = ( {handleAdd} ) => {
   const [ taskText, setTaskText ] = useState('');
@@ -26,12 +39,11 @@ const NewTaskForm = ( {handleAdd} ) => {
   }
 
   return (
-    <form >
-      <br />
+    <StyledTaskForm className='task-form' >
       <input type='text' placeholder='Task' value={taskText} onChange={handleTaskChange} />
       <input type='text' placeholder='Category' value={category} onChange={handleCategoryChange} />
-      <button type='submit' value='+' onClick={handleSubmit}>+</button>
-    </form>
+      <button type='submit' value='+' onClick={handleSubmit} style={{width: '99%'}}>+</button>
+    </StyledTaskForm>
   )
 }
 

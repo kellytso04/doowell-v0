@@ -12,7 +12,7 @@ const App = () => {
   const [ name, setName ] = useState('Kelly');
 
   return (
-    <div className='app'>
+    <div className='appParent'>
       <AppContainer >
         <GroupAContainer >
           { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
@@ -20,7 +20,6 @@ const App = () => {
             <br />
             { name.length ? <TaskList /> : null }
             <br />
-            <hr />
             <br />
             { name.length ? <ReminderList /> : null }
           </TaskReminderContainer>
@@ -33,7 +32,7 @@ const App = () => {
         <hr />
       </AppContainer>
       <footer className='footer'>
-        <a href='https://github.com/kellytso04/doowell' target="_blank" rel="noopener noreferrer" className='repo-link'>View on GitHub</a>
+        <a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View on GitHub</a>
       </footer>
     </div>
   )

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const ReminderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
   fontFamily: 'Varela Round', sans-serif;
 `

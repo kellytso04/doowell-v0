@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const AppContainer = styled.div`
-  position: fixed;
-  height: 93%;
-  min-height: 80%;
+  height: calc(100% - 30px);
   border: #F76C6C 5px solid;
   border-radius: 10px;
   padding: 10px;
@@ -13,6 +11,7 @@ export const GroupAContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 10px;
 `
 
 export const TaskReminderContainer = styled.div`

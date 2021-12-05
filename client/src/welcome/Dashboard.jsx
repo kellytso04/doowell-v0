@@ -5,7 +5,7 @@ import Clock from './Clock.jsx';
 const Dashboard = ( {name} ) => {
   return (
     <DashboardContainer className='dashboard'>
-      <div className='welcome-msg'>Welcome back, {name}.</div>
+      <div className='welcome-msg'>Welcome back, {name}</div>
       <hr />
       <Clock />
       <br />

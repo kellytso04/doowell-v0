@@ -7,6 +7,9 @@ import NewTaskForm from './NewTaskForm.jsx';
 
 const StyledTaskList = styled.div`
   align-content: center;
+  margin: auto;
+  border: white solid 2px;
+  margin-right: 4px;
 `
 
 const TaskList = (props) => {
@@ -63,7 +66,7 @@ const TaskList = (props) => {
       <div className='tasks-title' style={{textAlign: 'center'}}>
         Tasks
       </div>
-      <ul className='task-list'>
+      <div className='task-list' >
         { tasks.length ? tasks.map( (task, i) => {
           return (
             <Task
@@ -77,7 +80,7 @@ const TaskList = (props) => {
               />
           )
         }) : <div>Add a task to track it!</div>}
-      </ul>
+      </div>
       <NewTaskForm handleAdd={handleAdd}/>
     </ StyledTaskList>
   )

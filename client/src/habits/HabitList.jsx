@@ -69,7 +69,7 @@ const HabitList = () => {
 
   return (
     <div className='habits'>
-      <ul className='habit-list'>
+      <ul className='habit-list' style={{padding: '0'}}>
         { habits.length ? habits.map( (habit, i) => (
           <Habit
             text={habit.habit}

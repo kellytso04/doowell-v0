@@ -6,6 +6,7 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
   const [ checked, setChecked ] = useState(false);
 
   const taskID = `task-${no}`;
+  const taskTextID= `task-text-${no}`;
 
   useEffect( () => {
     const currentTask = document.getElementsByClassName(taskID)[0];
@@ -23,7 +24,7 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
   }
 
   const handleCompleteClick = () => {
-    const task = document.getElementsByClassName(taskID)[0];
+    const task = document.getElementById(taskTextID);
     task.style.textDecorationLine = 'line-through';
 
     handleComplete(taskText);
@@ -35,9 +36,9 @@ const Task = ( {taskText, category, color, no, handleComplete, handleDelete} ) =
 
   return (
     <TaskContainer className={taskID} >
-      <TextContainer>
-        <div className='task-text' style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '20px'}}>{taskText.toUpperCase()}</div>
-        <div className='task-category' style={{'fontFamily': 'EB Garamond'}}> {category.toUpperCase()} </div>
+      <TextContainer id={taskTextID}>
+        <div style={{'fontFamily': 'Varela Round, sans-serif', 'fontSize': '15px'}}>{taskText.toUpperCase()}</div>
+        <div className='task-category' style={{'fontFamily': 'EB Garamond', 'fontSize': '12px'}}> {category.toUpperCase()} </div>
       </ TextContainer>
       <ButtonContainer id='task-buttons'>
         <button value='✔️' onClick={handleCompleteClick}>✔️</button>

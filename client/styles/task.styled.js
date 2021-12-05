@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const TaskContainer = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
   fontFamily: 'Varela Round', sans-serif;
+  margin-right: 20px;
 `
 
 export const TextContainer = styled.span`

@@ -4,10 +4,11 @@ import {fetchReminders, addReminder, updateReminder, deleteReminder, completeRem
 import Reminder from './Reminder.jsx';
 import NewReminderForm from './NewReminderForm.jsx';
 
-const RemindersContainer = styled.div`
-  border: #6f9478 10px solid;
-  border-radius: 15px;
-  padding: 10px;
+const StyledReminderList = styled.div`
+  align-content: center;
+  margin: 0;
+  border: white solid 2px;
+  margin-left: 4px;
 `
 
 const ReminderList = (props) => {
@@ -79,11 +80,11 @@ const ReminderList = (props) => {
   }
 
   return (
-    <div className='reminders'>
+    <StyledReminderList className='reminders'>
         <div className='reminders-title' style={{textAlign: 'center'}}>
           Reminders
         </div>
-      <ul className='reminder-list'>
+      <ul className='reminder-list' style={{padding: '0'}}>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder
             text={reminder.reminder}
@@ -94,7 +95,7 @@ const ReminderList = (props) => {
       </ul>
       <br />
       <NewReminderForm addReminder={handleAdd} />
-    </div >
+    </StyledReminderList >
 
   )
 }

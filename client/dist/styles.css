@@ -1,9 +1,20 @@
 body {
   background-color: #A8D0E6;
+  height: calc(100vh - 16px);
   font-family: 'EB Garamond', serif;
   color: white;
   text-align: left;
-  min-width: 99%;
+  margin: 0;
+  padding: 8px;
+}
+
+#app, .appParent {
+  height: 100%;
+}
+
+.appParent {
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -42,9 +53,6 @@ footer {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-start;
-  /* float: bottom-right;
-  margin-right: 5px;
-  margin-top: 5px; */
 }
 
 .repo-link {
