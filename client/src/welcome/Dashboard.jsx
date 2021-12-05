@@ -32,7 +32,7 @@ const Dashboard = ( {name} ) => {
       <Clock />
       <br />
       <br />
-      You have {numIncTasks} unfinished tasks and {numIncReminders} reminders.
+      You have {numIncTasks} unfinished {numIncTasks < 2 ? 'task' : 'tasks'} and {numIncReminders} {numIncReminders < 2 ? 'reminder' : 'reminders'}.
     </DashboardContainer>
   )
 }
