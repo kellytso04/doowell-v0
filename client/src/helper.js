@@ -183,15 +183,37 @@ export function fetchNotes() {
     });
 }
 
-export function postNote(notes) {
+export function postNotes(notes) {
   return axios.post('/notes', { notes: notes })
     .catch( (err) => {
       console.error(err);
     });
 }
 
-export function editNote(notes) {
+export function editNotes(notes) {
   return axios.put('/notes', {notes: notes})
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function fetchIncompleteTasks() {
+  return axios.get('tasks/incomplete')
+    .then( (incompleteTasks) => {
+      console.log('helper received: ', incompleteTasks);
+      return incompleteTasks;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function fetchIncompleteReminders() {
+  return axios.get('reminders/incomplete')
+    .then( (incompleteReminders) => {
+      console.log('helper received: ', incompleteReminders);
+      return incompleteReminders;
+    })
     .catch( (err) => {
       console.error(err);
     });
