@@ -1,22 +1,6 @@
 -- CREATE DATABASE doowell;
 USE doowell;
 
-DROP TABLE IF EXISTS `habits`;
-CREATE TABLE `habits` (
-  `id` INTEGER AUTO_INCREMENT NOT NULL,
-  `habit` VARCHAR(1000) NOT NULL,
-  `date` VARCHAR(50) NOT NULL,
-  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
-  PRIMARY KEY (`id`)
-);
-
-DROP TABLE IF EXISTS `tracked_habits`;
-CREATE TABLE `tracked_habits` (
-  `id` INTEGER AUTO_INCREMENT NOT NULL,
-  `habit` VARCHAR(500) UNIQUE NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
 
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE `tasks` (
@@ -30,7 +14,6 @@ CREATE TABLE `tasks` (
 
 
 DROP TABLE IF EXISTS `reminders`;
-
 CREATE TABLE `reminders` (
   `id` INTEGER AUTO_INCREMENT NOT NULL,
   `reminder` VARCHAR(2000) NOT NULL,
@@ -38,3 +21,28 @@ CREATE TABLE `reminders` (
   PRIMARY KEY (`id`)
 );
 
+
+DROP TABLE IF EXISTS `tracked_habits`;
+CREATE TABLE `tracked_habits` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `habit` VARCHAR(500) UNIQUE NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+DROP TABLE IF EXISTS `habits`;
+CREATE TABLE `habits` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `habit` VARCHAR(1000) NOT NULL,
+  `date` VARCHAR(50) NOT NULL,
+  `hex_color` VARCHAR(6) DEFAULT 'f7d088',
+  PRIMARY KEY (`id`)
+);
+
+
+DROP TABLE IF EXISTS `notes`;
+CREATE TABLE `notes` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `notes` VARCHAR(8000),
+  PRIMARY KEY (`id`)
+);
