@@ -38,7 +38,7 @@ const Clock = (props) => {
   }, []);
 
   return (
-    <p className='clock' style={{fontSize: '30px'}}>
+    <p className='clock' style={{fontSize: '25px'}}>
       It is currently {time} on {day}, {date}.
     </p>
   )
