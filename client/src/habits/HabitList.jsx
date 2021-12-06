@@ -4,6 +4,12 @@ import { fetchHabits, addHabit, deleteHabit } from '../helper.js';
 import Habit from './Habit.jsx';
 import NewHabitForm from './NewHabitForm.jsx';
 
+const StyledHabitList = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+`
+
 const HabitList = () => {
   const [ habits, setHabits ] = useState([]);
   const [ habitCount, setHabitCount ] = useState('');
@@ -68,8 +74,13 @@ const HabitList = () => {
   }
 
   return (
-    <div className='habits' style={{border: 'white 5px solid'}}>
-      <ul className='habit-list' style={{padding: '0'}}>
+    <div className='habits' style={{border: '#24305E 5px solid', backgroundColor: 'white'}} >
+      <div
+        className='habits-msg'
+        style={{color: '#374785', textAlign: 'center', paddingTop: '10px', paddingBottom: '8px'}}>
+        Habits
+      </div>
+      <StyledHabitList className='habit-list' >
         { habits.length ? habits.map( (habit, i) => (
           <Habit
             text={habit.habit}
@@ -78,11 +89,11 @@ const HabitList = () => {
             handleDelete={handleDelete}
           />
         )) : null }
-      </ul>
+      </ StyledHabitList>
       <br />
       { habitCount < 6 ? <NewHabitForm handleAdd={handleAdd} />
-      : <div>You're at the maximum number of habits. Untrack one to add another</div> }
-    </div>
+      : <div>You're at the maximum number of habits. Untrack one to add another.</div> }
+    </ div>
   )
 }
 

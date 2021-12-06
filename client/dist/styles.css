@@ -40,7 +40,7 @@ input {
   text-align: center;
 }
 
-.welcome-msg, .notes-msg {
+.welcome-msg, .notes-msg, .habits-msg {
   font-family: 'Varela Round', sans-serif;
   font-size: 40px;
 }
