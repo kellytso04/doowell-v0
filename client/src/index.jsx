@@ -34,7 +34,6 @@ const App = () => {
             <br />
             { name.length ? <TaskList /> : null }
             <br />
-            <br />
             { name.length ? <ReminderList /> : null }
           </ TaskReminderContainer>
           <br />
@@ -42,7 +41,7 @@ const App = () => {
         </ GroupBContainer>
       </AppContainer>
       <footer className='footer' style={{alignItems: 'center'}}>
-        <p><a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View on GitHub</a></p>
+        <p><a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View <b>Doowell</b> on GitHub</a></p>
       </footer>
     </div>
   )
