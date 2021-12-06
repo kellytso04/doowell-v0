@@ -5,7 +5,6 @@ export const ReminderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   font-family: 'Varela Round', sans-serif;
   border: 1px #F76C6C ridge;
   padding: 15px;
