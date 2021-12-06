@@ -94,9 +94,10 @@ const ReminderList = (props) => {
 
   return (
     <StyledReminderList className='reminders'>
-        <div className='reminders-title' style={{textAlign: 'center'}}>
-          Reminders
-        </div>
+      <div className='reminders-title' style={{textAlign: 'center'}}>
+        Reminders
+      </div>
+      <NewReminderForm addReminder={handleAdd} style={{alignSelf: 'flex-end'}} />
       <div className='reminder-list' style={{padding: '0'}}>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder
@@ -107,8 +108,6 @@ const ReminderList = (props) => {
             no={i}/>
         )) : null }
       </div>
-      <br />
-      <NewReminderForm addReminder={handleAdd} style={{alignSelf: 'flex-end'}} />
     </StyledReminderList >
 
   )

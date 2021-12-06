@@ -73,6 +73,7 @@ const TaskList = (props) => {
       <div className='tasks-title' style={{textAlign: 'center'}}>
         Tasks
       </div>
+      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}} />
       <div className='task-list' >
         { tasks.length ? tasks.map( (task, i) => {
           return (
@@ -88,7 +89,6 @@ const TaskList = (props) => {
           )
         }) : <div style={{margin: '0'}}>Add a task to track it!</div>}
       </div>
-      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}} />
     </ StyledTaskList>
   )
 }

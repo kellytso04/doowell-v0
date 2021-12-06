@@ -1,6 +1,7 @@
 body {
   background-color: #A8D0E6;
-  max-height: calc(100vh - 25px);
+  max-height: 99vh;
+  height: 99vh;
   overflow-y: scroll;
   font-family: 'EB Garamond', serif;
   color: white;

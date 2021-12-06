@@ -30,7 +30,7 @@ const NewReminderForm = ( {addReminder} ) => {
         value={reminderText}
         onChange={(e) => { setReminderText(e.target.value) }}
       />
-      <button type='submit' value='+' onClick={handleSubmit} style={{width: '99%'}}>+</button>
+      <button type='submit' value='+' onClick={handleSubmit} style={{width: '100%'}}>+</button>
     </StyledReminderForm>
   )
 }

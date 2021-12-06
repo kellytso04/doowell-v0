@@ -8,12 +8,14 @@ const StyledHabitList = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin: 0;
 `
 
 const HabitList = () => {
   const [ habits, setHabits ] = useState([]);
   const [ habitCount, setHabitCount ] = useState('');
   const [ modalVisible, setModalVisible ] = useState(false);
+  const [ currentDate, setCurrentDate ] = useState('');
 
   useEffect(() => {
     fetchHabits()
@@ -24,6 +26,11 @@ const HabitList = () => {
       .catch( (err) => {
         console.error(err);
       })
+  }, []);
+
+  // TODO: On mount, get + set the current date
+  useEffect(() => {
+
   }, []);
 
   const handleAdd = (habit) => {
@@ -74,10 +81,10 @@ const HabitList = () => {
   }
 
   return (
-    <div className='habits' style={{border: '#24305E 5px solid', backgroundColor: 'white'}} >
+    <div className='habits' style={{border: '#24305E 5px solid', backgroundColor: 'white', maxWidth: '30%'}} >
       <div
         className='habits-msg'
-        style={{color: '#374785', textAlign: 'center', paddingTop: '10px', paddingBottom: '8px'}}>
+        style={{color: '#374785', textAlign: 'center', paddingTop: '10px', paddingBottom: '8px', fontFamily: 'EB Garamond, sans-serif'}}>
         Habits
       </div>
       <StyledHabitList className='habit-list' >

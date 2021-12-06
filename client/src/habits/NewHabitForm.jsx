@@ -23,7 +23,7 @@ const NewHabitForm = ( {handleAdd} ) => {
   }
 
   return (
-    <form className='habit-form'>
+    <StyledHabitForm className='habit-form' >
       <br />
       <input
         type='text'
@@ -31,8 +31,8 @@ const NewHabitForm = ( {handleAdd} ) => {
         value={habitText}
         onChange={(e) => { setHabitText(e.target.value) }}
       />
-      <button type='submit' value='+' onClick={handleSubmit}>+</button>
-    </form>
+      <button type='submit' value='+' onClick={handleSubmit} style={{width: '100%'}}>+</button>
+    </ StyledHabitForm>
   )
 }
 
