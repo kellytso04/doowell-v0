@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DashboardContainer = styled.div`
-  height: 60%;
+  height: 40%;
   width: 40%;
   background-color: white;
   border: #24305E 5px solid;

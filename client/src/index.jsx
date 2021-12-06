@@ -12,8 +12,9 @@ import Notes from './notes/Notes.jsx';
 const App = () => {
   const [ name, setName ] = useState('Kelly');
   // TODO: Refactor so that Dashboard has taskNumber and reminderNumber
-  // const [ tasks, setTasks ] = useState([]);
-  // const [ reminders, setReminders ] = useState([]);
+
+  const [ tasks, setTasks ] = useState([]);
+  const [ reminders, setReminders ] = useState([]);
   // const [ date, setDate ] = useState('');
 
   // TODO: Give Dashboard name, taskNumber, reminderNumber, and date
@@ -25,22 +26,22 @@ const App = () => {
       <AppContainer >
         <GroupAContainer >
           { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
+          <br />
+          { name.length ? <Notes /> : null }
+        </ GroupAContainer>
+        <GroupBContainer >
           <TaskReminderContainer >
             <br />
             { name.length ? <TaskList /> : null }
             <br />
-            <br />
             { name.length ? <ReminderList /> : null }
           </ TaskReminderContainer>
-        </ GroupAContainer>
-        <GroupBContainer >
-          { name.length ? <HabitList /> : null }
           <br />
-          { name.length ? <Notes /> : null }
+          { name.length ? <HabitList /> : null }
         </ GroupBContainer>
       </AppContainer>
       <footer className='footer' style={{alignItems: 'center'}}>
-        <p><a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View on GitHub</a></p>
+        <p><a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View <b>Doowell</b> on GitHub</a></p>
       </footer>
     </div>
   )

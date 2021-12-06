@@ -20,4 +20,5 @@ export const ButtonContainer = styled.span`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-left: 5px;
 `

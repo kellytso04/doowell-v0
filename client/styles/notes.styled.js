@@ -11,11 +11,11 @@ export const StyledNotes = styled.form`
 export const StyledTextArea = styled.textarea`
   background-color: #24305E;
   color: white;
-  font-size: 20px;
   padding: 10px;
   height: 250px;
   width: 700px;
-  font-family: 'EB Garamond', serif;
+  font-family: 'Varela Round', serif;
+  font-size: 15px;
   overflow-y: auto;
   overflow-x: auto;
 `

@@ -38,7 +38,7 @@ export function completeTask(taskID) {
   return axios.put('/tasks/complete', {taskID: taskID})
     .catch( (err) => {
       console.error(err);
-    })
+    });
 }
 
 export function deleteTask(taskID) {

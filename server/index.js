@@ -2,9 +2,6 @@ const express = require('express');
 const app = express();
 
 const { client } = require('../db/config.js');
-const habit = require('./models/habitModel.js');
-const task = require('./models/taskModel.js');
-const reminder = require('./models/reminderModel.js');
 
 // -- Middleware ----------------------------------------------------------------------
 app.use(express.static(__dirname + '/../client/dist'));
