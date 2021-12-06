@@ -30,10 +30,14 @@ button {
 
 input {
   height: 27px;
-  border-radius: 3px;
+  border: #24305E 3px solid;
   font-family: 'EB Garamond', serif;
   font-size: 15px;
   transition: 0.2s all;
+}
+
+input:hover, button:hover {
+  border: #374785 4px solid;
 }
 
 .name-prompt {
@@ -44,6 +48,11 @@ input {
 .welcome-msg, .notes-msg, .habits-msg {
   font-family: 'Varela Round', sans-serif;
   font-size: 40px;
+}
+
+.chart-msg {
+  font-family: 'Varela Round', sans-serif;
+  color: 'black';
 }
 
 .tasks-title, .reminders-title {

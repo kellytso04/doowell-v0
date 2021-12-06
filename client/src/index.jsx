@@ -15,7 +15,7 @@ const App = () => {
 
   const [ tasks, setTasks ] = useState([]);
   const [ reminders, setReminders ] = useState([]);
-  const [ date, setDate ] = useState('');
+  // const [ date, setDate ] = useState('');
 
   // TODO: Give Dashboard name, taskNumber, reminderNumber, and date
   // TODO: Give TaskList and ReminderList their props

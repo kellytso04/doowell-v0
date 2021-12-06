@@ -23,7 +23,6 @@ const Notes = (props) => {
       // If they have, we'll save the notes to the database
 
       if (notes !== previousNotes) {
-        console.log('saving new notes');
         editNotes(notes)
           .then( () => {
             fetchNotes()

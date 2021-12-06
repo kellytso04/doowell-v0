@@ -25,7 +25,6 @@ const TaskList = (props) => {
   useEffect(() => {
     fetchTasks()
       .then( ({data}) => {
-        console.log('task: ', data[0]);
         setTasks(data);
       })
       .catch( (err) => {

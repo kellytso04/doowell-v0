@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyledHabitContainer, StyledHabitList, StyledHabitMsg } from '../../styles/habitList.styled.js';
 import { fetchHabits, addHabit, deleteHabit } from '../helper.js';
+import ChartButtons from './ChartButtons.jsx';
 import Habit from './Habit.jsx';
 import NewHabitForm from './NewHabitForm.jsx';
 
@@ -80,6 +81,7 @@ const HabitList = () => {
       </StyledHabitMsg>
       { habitCount < 6 ? <NewHabitForm handleAdd={handleAdd} />
       : <div>You're at the maximum number of habits. Untrack one to add another.</div> }
+      <ChartButtons />
       <StyledHabitList className='habit-list' >
         { habits.length ? habits.map( (habit, i) => (
           <Habit
