@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {fetchReminders, addReminder, updateReminder, deleteReminder, completeReminder} from '../helper.js';
 import Reminder from './Reminder.jsx';
@@ -20,6 +20,12 @@ const StyledReminderList = styled.div`
 
 const ReminderList = (props) => {
   const [ reminders, setReminders ] = useState([]);
+
+  const { reminderData, setReminderData } = useContext(TaskDataContext);
+
+  useEffect(() => {
+    setReminderData(reminders.length);
+  }, [reminders, setReminderData]);
 
   useEffect( () => {
     fetchReminders()
@@ -91,7 +97,7 @@ const ReminderList = (props) => {
         <div className='reminders-title' style={{textAlign: 'center'}}>
           Reminders
         </div>
-      <ul className='reminder-list' style={{padding: '0'}}>
+      <div className='reminder-list' style={{padding: '0'}}>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder
             id={reminder.id}
@@ -100,7 +106,7 @@ const ReminderList = (props) => {
             key={i}
             no={i}/>
         )) : null }
-      </ul>
+      </div>
       <br />
       <NewReminderForm addReminder={handleAdd} style={{alignSelf: 'flex-end'}} />
     </StyledReminderList >

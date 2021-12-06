@@ -68,7 +68,7 @@ const HabitList = () => {
   }
 
   return (
-    <div className='habits'>
+    <div className='habits' style={{border: 'white 5px solid'}}>
       <ul className='habit-list' style={{padding: '0'}}>
         { habits.length ? habits.map( (habit, i) => (
           <Habit

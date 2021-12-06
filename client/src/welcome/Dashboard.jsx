@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { TaskDataContext, TaskDataContextProvider } from '../TaskDataContext.js';
+import { ReminderDataContext, ReminderDataContextProvider } from '../ReminderDataContext.js';
 import { DashboardContainer } from '../../styles/dashboard.styled.js';
 import { fetchIncompleteTasks, fetchIncompleteReminders } from '../helper.js';
 import Clock from './Clock.jsx';
@@ -7,33 +9,39 @@ const Dashboard = ( {name} ) => {
   const [ numIncTasks, setNumIncTasks ] = useState([]);
   const [ numIncReminders, setNumIncReminders ] = useState([]);
 
-  useEffect( () => {
-    fetchIncompleteTasks()
-      .then( ({data}) => {
-        setNumIncTasks(data.length);
+  const { taskData } = useContext(TaskDataContext);
+  const { reminderData } = useContext(ReminderDataContext);
 
-        fetchIncompleteReminders()
-          .then( ({data}) => {
-            setNumIncReminders(data.length);
-          })
-          .catch( (err) => {
-            console.error(err);
-          })
-      })
-      .catch( (err) => {
-        console.error(err);
-      });
-  }, []);
+  // useEffect( () => {
+  //   fetchIncompleteTasks()
+  //     .then( ({data}) => {
+  //       setNumIncTasks(data.length);
+
+  //       fetchIncompleteReminders()
+  //         .then( ({data}) => {
+  //           setNumIncReminders(data.length);
+  //         })
+  //         .catch( (err) => {
+  //           console.error(err);
+  //         })
+  //     })
+  //     .catch( (err) => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   return (
-    <DashboardContainer className='dashboard'>
-      <div className='welcome-msg'>Welcome back, {name}</div>
-      <hr />
-      <Clock />
-      <br />
-      <br />
-      You have {numIncTasks} unfinished {numIncTasks < 2 ? 'task' : 'tasks'} and {numIncReminders} {numIncReminders < 2 ? 'reminder' : 'reminders'}.
-    </DashboardContainer>
+    <TaskDataContextProvider>
+      <ReminderDataContextProvider>
+        <DashboardContainer className='dashboard'>
+          <div className='welcome-msg'>Welcome back, {name}</div>
+          <hr />
+          <Clock />
+          <br />
+          <div style={{fontSize: '20px'}}>You have {taskData} unfinished {taskData < 2 ? 'task' : 'tasks'} and {reminderData} {reminderData < 2 ? 'reminder' : 'reminders'}.</div>
+        </DashboardContainer>
+      </ReminderDataContextProvider>
+    </TaskDataContextProvider>
   )
 }
 

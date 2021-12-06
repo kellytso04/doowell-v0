@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { TaskDataContext, TaskDataContextProvider } from '../TaskDataContext.js';
 import { fetchTasks, addTask, updateTask, completeTask, deleteTask } from '../helper.js';
 import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
@@ -21,6 +22,12 @@ const StyledTaskList = styled.div`
 
 const TaskList = (props) => {
   const [ tasks, setTasks ] = useState([]);
+
+  const { taskData, setTaskData } = useContext(TaskDataContext);
+
+  useEffect(() => {
+    setTaskData(tasks.length);
+  }, [tasks, setTaskData]);
 
   useEffect(() => {
     fetchTasks()
@@ -88,7 +95,7 @@ const TaskList = (props) => {
           )
         }) : <div style={{margin: '0'}}>Add a task to track it!</div>}
       </div>
-      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}}/>
+      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}} />
     </ StyledTaskList>
   )
 }
