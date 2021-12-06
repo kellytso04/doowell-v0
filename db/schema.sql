@@ -46,3 +46,10 @@ CREATE TABLE `notes` (
   `notes` VARCHAR(8000),
   PRIMARY KEY (`id`)
 );
+
+DROP TABLE IF EXISTS `current_date`;
+CREATE TABLE `current_date` (
+  `id` INTEGER AUTO_INCREMENT NOT NULL,
+  `date` VARCHAR(100),
+  PRIMARY KEY (`id`)
+);
