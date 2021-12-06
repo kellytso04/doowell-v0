@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { TaskDataContext, TaskDataContextProvider } from '../TaskDataContext.js';
+// import { TaskDataContext, TaskDataContextProvider } from '../TaskDataContext.js';
 import { fetchTasks, addTask, updateTask, completeTask, deleteTask } from '../helper.js';
 import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
@@ -23,11 +23,7 @@ const StyledTaskList = styled.div`
 const TaskList = (props) => {
   const [ tasks, setTasks ] = useState([]);
 
-  const { taskData, setTaskData } = useContext(TaskDataContext);
-
-  useEffect(() => {
-    setTaskData(tasks.length);
-  }, [tasks, setTaskData]);
+  // const { taskData, setTaskData } = useContext(TaskDataContext);
 
   useEffect(() => {
     fetchTasks()
@@ -38,6 +34,10 @@ const TaskList = (props) => {
         console.error(err);
       });
   }, []);
+
+  // useEffect(() => {
+  //   setTaskData(tasks.length);
+  // }, [tasks, setTaskData]);
 
   const handleAdd = (taskObject) => {
     addTask(taskObject)

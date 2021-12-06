@@ -1,15 +1,17 @@
-import { createContext, useState } from 'react';
+// import { createContext, useState } from 'react';
 
-const [ taskData, setTaskData ] = useState(undefined);
+// const [ taskData, setTaskData ] = useState([]);
 
-const TaskDataContext = createContext({ TaskData, setTaskData });
+// let TaskDataContext;
 
-const TaskDataContextProvider = ( {children} ) => {
-  return (
-    <TaskDataContext.Provider value={{ TaskData, setTaskData }}>
-      {children}
-    </TaskDataContext.Provider>
-  );
-};
+// const TaskDataContextProvider = ( {children} ) => {
+//   TaskDataContext = createContext({ TaskData, setTaskData });
 
-export { TaskDataContext, TaskDataContextProvider };
+//   return (
+//     <TaskDataContext.Provider value={{ TaskData, setTaskData }}>
+//       {children}
+//     </TaskDataContext.Provider>
+//   );
+// };
+
+// export { TaskDataContext, TaskDataContextProvider };

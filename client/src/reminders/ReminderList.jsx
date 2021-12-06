@@ -21,11 +21,11 @@ const StyledReminderList = styled.div`
 const ReminderList = (props) => {
   const [ reminders, setReminders ] = useState([]);
 
-  const { reminderData, setReminderData } = useContext(TaskDataContext);
+  // const { reminderData, setReminderData } = useContext(TaskDataContext);
 
-  useEffect(() => {
-    setReminderData(reminders.length);
-  }, [reminders, setReminderData]);
+  // useEffect(() => {
+  //   setReminderData(reminders.length);
+  // }, [reminders, setReminderData]);
 
   useEffect( () => {
     fetchReminders()
