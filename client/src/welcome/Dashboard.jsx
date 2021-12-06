@@ -9,6 +9,8 @@ const Dashboard = ( {name} ) => {
       <div className='welcome-msg'>Welcome back, {name}</div>
       <hr />
       <Clock />
+      <br />
+      You have 1 incomplete task and 3 reminders.
     </ DashboardContainer>
   )
 }
