@@ -40,7 +40,8 @@ The **Dashboard**:
 The **Notes** feature takes the place of the aforementioned Journal. One of the most productive things in the world is a scratchpad in front of you, so Doowell provides one. 
 I'd originally built this component with a 'Save' button, but after using it a few times, I found the need to click 'Save' every time you wrote anything was tedious, and I once even lost data because I'd forgotten to Save it. After that, I decided to replace the button with an auto-save implementation, which updates the database with your notes a 1-second interval if you've added to the text area.
 
-![notes-demo](https://user-images.githubusercontent.com/47910950/144933721-2845883b-c281-425d-aaa0-c9edc079f23e.gif)
+![notes-demo](https://user-images.githubusercontent.com/47910950/144935626-096a34c3-72ce-4221-a648-dec1d1167ae8.gif)
+
 
 **Habit-tracker, tasks, and reminders**
 
