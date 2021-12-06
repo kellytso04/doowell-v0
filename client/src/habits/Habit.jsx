@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { HabitContainer, TextContainer, ButtonContainer } from '../../styles/habit.styled.js';
 import { completeHabit } from '../helper.js';
 
 const Habit = ({text, no, handleDelete}) => {
@@ -17,7 +17,6 @@ const Habit = ({text, no, handleDelete}) => {
     completeBtn.disabled = true;
 
     const habit = document.getElementById(habitID);
-    console.log('HABIT: ', habit);
     habit.style.opacity = '50%';
   }
 
@@ -26,11 +25,15 @@ const Habit = ({text, no, handleDelete}) => {
   }
 
   return (
-    <div id={habitID}>
-      <button id={`complete${buttonID}`} value='✔️' onClick={handleCompleteClick}>✔️</button>
-      <button id={`delete${buttonID}`} value='-' onClick={handleDeleteClick}>-</button>
-      {text}
-    </div>
+    <HabitContainer id={habitID}>
+      <TextContainer>
+        {text}
+      </ TextContainer>
+      <ButtonContainer >
+        <button id={`complete${buttonID}`} value='✔️' onClick={handleCompleteClick}>✔️</button>
+        <button id={`delete${buttonID}`} value='-' onClick={handleDeleteClick}>-</button>
+      </ ButtonContainer>
+    </HabitContainer>
   )
 }
 

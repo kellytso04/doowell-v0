@@ -4,10 +4,18 @@ import { fetchHabits, addHabit, deleteHabit } from '../helper.js';
 import Habit from './Habit.jsx';
 import NewHabitForm from './NewHabitForm.jsx';
 
+const StyledHabitList = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0;
+`
+
 const HabitList = () => {
   const [ habits, setHabits ] = useState([]);
   const [ habitCount, setHabitCount ] = useState('');
   const [ modalVisible, setModalVisible ] = useState(false);
+  const [ currentDate, setCurrentDate ] = useState('');
 
   useEffect(() => {
     fetchHabits()
@@ -18,6 +26,11 @@ const HabitList = () => {
       .catch( (err) => {
         console.error(err);
       })
+  }, []);
+
+  // TODO: On mount, get + set the current date
+  useEffect(() => {
+
   }, []);
 
   const handleAdd = (habit) => {
@@ -68,8 +81,13 @@ const HabitList = () => {
   }
 
   return (
-    <div className='habits'>
-      <ul className='habit-list'>
+    <div className='habits' style={{border: '#24305E 5px solid', backgroundColor: 'white', maxWidth: '30%'}} >
+      <div
+        className='habits-msg'
+        style={{color: '#374785', textAlign: 'center', paddingTop: '10px', paddingBottom: '8px', fontFamily: 'EB Garamond, sans-serif'}}>
+        Habits
+      </div>
+      <StyledHabitList className='habit-list' >
         { habits.length ? habits.map( (habit, i) => (
           <Habit
             text={habit.habit}
@@ -78,11 +96,11 @@ const HabitList = () => {
             handleDelete={handleDelete}
           />
         )) : null }
-      </ul>
+      </ StyledHabitList>
       <br />
       { habitCount < 6 ? <NewHabitForm handleAdd={handleAdd} />
-      : <div>You're at the maximum number of habits. Untrack one to add another</div> }
-    </div>
+      : <div>You're at the maximum number of habits. Untrack one to add another.</div> }
+    </ div>
   )
 }
 

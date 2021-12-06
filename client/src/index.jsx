@@ -1,38 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import styled from 'styled-components';
+import { AppContainer, ComponentContainer, GroupAContainer, GroupBContainer, TaskReminderContainer, HabitContainer, Footer } from '../styles/app.styled.js';
 import NamePrompt from './welcome/NamePrompt.jsx';
 import Dashboard from './welcome/Dashboard.jsx';
 import TaskList from './tasks/TaskList.jsx';
 import ReminderList from './reminders/ReminderList.jsx';
 import HabitList from './habits/HabitList.jsx';
-
-const AppContainer = styled.div`
-  border: #f7d088 5px solid;
-  border-radius: 10px;
-  padding: 10px;
-`
+import Notes from './notes/Notes.jsx';
 
 const App = () => {
   const [ name, setName ] = useState('Kelly');
+  // TODO: Refactor so that Dashboard has taskNumber and reminderNumber
+  // const [ tasks, setTasks ] = useState([]);
+  // const [ reminders, setReminders ] = useState([]);
+  // const [ date, setDate ] = useState('');
+
+  // TODO: Give Dashboard name, taskNumber, reminderNumber, and date
+  // TODO: Give TaskList and ReminderList their props
+  // TODO: On mount, fetch tasks/reminders and get today's date
 
   return (
-    <div className='app'>
+    <div className='appParent'>
       <AppContainer >
-      { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
-      { name.length ? <TaskList /> : null }
-      <br />
-      <hr />
-      <br />
-      { name.length ? <ReminderList /> : null }
-      <br />
-      <hr />
-      <br />
-      { name.length ? <HabitList /> : null }
+        <GroupAContainer >
+          { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
+          <TaskReminderContainer >
+            <br />
+            { name.length ? <TaskList /> : null }
+            <br />
+            <br />
+            { name.length ? <ReminderList /> : null }
+          </ TaskReminderContainer>
+        </ GroupAContainer>
+        <GroupBContainer >
+          { name.length ? <HabitList /> : null }
+          <br />
+          { name.length ? <Notes /> : null }
+        </ GroupBContainer>
       </AppContainer>
-      <footer>
-        <a href='https://github.com/kellytso04/doowell'>View on GitHub</a>
+      <footer className='footer' style={{alignItems: 'center'}}>
+        <p><a href='https://github.com/kellytso04/doowell' target='_blank' rel='noopener noreferrer' className='repo-link'>View on GitHub</a></p>
       </footer>
     </div>
   )

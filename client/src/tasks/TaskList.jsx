@@ -1,9 +1,23 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { fetchTasks, addTask, updateTask, completeTask, deleteTask } from '../helper.js';
 import Task from './Task.jsx';
 import NewTaskForm from './NewTaskForm.jsx';
+
+const StyledTaskList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  border: #A8D0E6 solid 2px;
+  margin-right: 4px;
+  scroll-behavior: smooth;
+`
 
 const TaskList = (props) => {
   const [ tasks, setTasks ] = useState([]);
@@ -55,24 +69,27 @@ const TaskList = (props) => {
   }
 
   return (
-    <div>
-      <ul className='task-list'>
+    <StyledTaskList className='task-list' >
+      <div className='tasks-title' style={{textAlign: 'center'}}>
+        Tasks
+      </div>
+      <NewTaskForm handleAdd={handleAdd} style={{alignSelf: 'flex-end'}} />
+      <div className='task-list' >
         { tasks.length ? tasks.map( (task, i) => {
           return (
             <Task
+              id={task.id}
               taskText={task.task}
               category={task.category}
               color={`#${task.hex_color}`}
               key={i}
-              no={i}
               handleComplete={handleComplete}
               handleDelete={handleDelete}
               />
           )
-        }) : <div>Add a task to track it!</div>}
-      </ul>
-      <NewTaskForm handleAdd={handleAdd}/>
-    </div>
+        }) : <div style={{margin: '0'}}>Add a task to track it!</div>}
+      </div>
+    </ StyledTaskList>
   )
 }
 

@@ -1,17 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {fetchReminders, addReminder, updateReminder, deleteReminder, completeReminder} from '../helper.js';
 import Reminder from './Reminder.jsx';
 import NewReminderForm from './NewReminderForm.jsx';
 
-const RemindersContainer = styled.div`
-  border: #6f9478 10px solid;
-  border-radius: 15px;
-  padding: 10px;
+const StyledReminderList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  border: #A8D0E6 solid 2px;
+  margin-left: 4px;
+  scroll-behavior: smooth;
 `
 
 const ReminderList = (props) => {
   const [ reminders, setReminders ] = useState([]);
+
+  // const { reminderData, setReminderData } = useContext(TaskDataContext);
+
+  // useEffect(() => {
+  //   setReminderData(reminders.length);
+  // }, [reminders, setReminderData]);
 
   useEffect( () => {
     fetchReminders()
@@ -39,8 +53,8 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleEdit = (reminderText, updateText) => {
-    updateReminder(reminderText, updateText)
+  const handleEdit = (reminderID, updateText) => {
+    updateReminder(reminderID, updateText)
       .then( () => {
         fetchReminders()
         .then( ({data}) => {
@@ -55,8 +69,8 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleDelete = (reminderText) => {
-    deleteReminder(reminderText)
+  const handleDelete = (reminderID) => {
+    deleteReminder(reminderID)
       .then( () => {
         fetchReminders()
           .then( ({data}) => {
@@ -71,27 +85,30 @@ const ReminderList = (props) => {
       });
   }
 
-  const handleComplete = (reminderText) => {
-    completeReminder(reminderText)
+  const handleComplete = (reminderID) => {
+    completeReminder(reminderID)
       .catch( (err) => {
         console.error(err);
       })
   }
 
   return (
-    <div className='reminders'>
-      <ul className='reminder-list'>
+    <StyledReminderList className='reminders'>
+      <div className='reminders-title' style={{textAlign: 'center'}}>
+        Reminders
+      </div>
+      <NewReminderForm addReminder={handleAdd} style={{alignSelf: 'flex-end'}} />
+      <div className='reminder-list' style={{padding: '0'}}>
         { reminders.length ? reminders.map( (reminder, i) => (
           <Reminder
+            id={reminder.id}
             text={reminder.reminder}
             handleComplete={handleComplete}
             key={i}
             no={i}/>
         )) : null }
-      </ul>
-      <br />
-      <NewReminderForm addReminder={handleAdd} />
-    </div >
+      </div>
+    </StyledReminderList >
 
   )
 }

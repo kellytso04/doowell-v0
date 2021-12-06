@@ -22,9 +22,9 @@ export function addTask( {taskText, category, hex_color = 'd5b8db'} ) {
     });
 }
 
-export function updateTask(taskText, updateText) {
+export function updateTask(taskID, updateText) {
   const body = {
-    taskText: taskText,
+    taskID: taskID,
     updateText: updateText
   }
 
@@ -34,21 +34,21 @@ export function updateTask(taskText, updateText) {
     })
 }
 
-export function completeTask(taskText) {
-  return axios.put('/tasks/complete', {taskText: taskText})
+export function completeTask(taskID) {
+  return axios.put('/tasks/complete', {taskID: taskID})
     .catch( (err) => {
       console.error(err);
     })
 }
 
-export function deleteTask(taskText) {
+export function deleteTask(taskID) {
   const config = {
     method: 'delete',
     url: '/tasks',
     headers: {
       'Content-Type': 'application/json'
     },
-    data: { 'task': taskText }
+    data: { 'taskID': taskID }
   };
 
   return axios(config)
@@ -74,9 +74,9 @@ export function addReminder(reminderText) {
     });
 }
 
-export function updateReminder(reminderText, updateText) {
+export function updateReminder(reminderID, updateText) {
   const body = {
-    reminderText: reminderText,
+    reminderID: reminderID,
     updateText: updateText
   }
 
@@ -86,14 +86,14 @@ export function updateReminder(reminderText, updateText) {
     })
 }
 
-export function deleteReminder(reminderText) {
+export function deleteReminder(reminderID) {
   const config = {
     method: 'delete',
     url: '/reminders',
     headers: {
       'Content-Type': 'application/json'
     },
-    data: { 'reminder': reminderText }
+    data: { 'reminderID': reminderID }
   };
 
   return axios(config)
@@ -102,8 +102,8 @@ export function deleteReminder(reminderText) {
     });
 }
 
-export function completeReminder(reminderText) {
-  return axios.put('/reminders/complete', {reminderText: reminderText})
+export function completeReminder(reminderID) {
+  return axios.put('/reminders/complete', {reminderID: reminderID})
     .catch( (err) => {
       console.error(err);
     })
@@ -168,6 +168,50 @@ export function deleteHabit(text) {
   };
 
   return axios(config)
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function fetchNotes() {
+  return axios.get('/notes')
+    .then( (notes) => {
+      return notes;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function postNotes(notes) {
+  return axios.post('/notes', { notes: notes })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function editNotes(notes) {
+  return axios.put('/notes', {notes: notes})
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function fetchIncompleteTasks() {
+  return axios.get('tasks/incomplete')
+    .then( (incompleteTasks) => {
+      return incompleteTasks;
+    })
+    .catch( (err) => {
+      console.error(err);
+    });
+}
+
+export function fetchIncompleteReminders() {
+  return axios.get('reminders/incomplete')
+    .then( (incompleteReminders) => {
+      return incompleteReminders;
+    })
     .catch( (err) => {
       console.error(err);
     });
