@@ -19,9 +19,6 @@ const Notes = (props) => {
 
   useEffect( () => {
     const intervalID = setInterval( () => {
-      // Every 3s, we check if the user has added notes
-      // If they have, we'll save the notes to the database
-
       if (notes !== previousNotes) {
         editNotes(notes)
           .then( () => {
@@ -36,9 +33,9 @@ const Notes = (props) => {
           })
           .catch( (err) => {
             console.error(err);
-          })
+          });
       }
-    }, 2000);
+    }, 1000);
 
     return function cleanup() {
       clearInterval(intervalID);

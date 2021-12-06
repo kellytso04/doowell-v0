@@ -23,7 +23,7 @@ export const GroupBContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 40px;
   padding-left: 10px;
   padding-right: 10px;
 `
