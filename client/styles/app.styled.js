@@ -14,6 +14,7 @@ export const GroupAContainer = styled.div`
   height: 50%;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding-left: 10px;
   padding-right: 10px;
 `
@@ -22,7 +23,7 @@ export const GroupBContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 50px;
   padding-left: 10px;
   padding-right: 10px;
 `

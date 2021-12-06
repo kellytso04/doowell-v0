@@ -12,9 +12,10 @@ import Notes from './notes/Notes.jsx';
 const App = () => {
   const [ name, setName ] = useState('Kelly');
   // TODO: Refactor so that Dashboard has taskNumber and reminderNumber
-  // const [ tasks, setTasks ] = useState([]);
-  // const [ reminders, setReminders ] = useState([]);
-  // const [ date, setDate ] = useState('');
+
+  const [ tasks, setTasks ] = useState([]);
+  const [ reminders, setReminders ] = useState([]);
+  const [ date, setDate ] = useState('');
 
   // TODO: Give Dashboard name, taskNumber, reminderNumber, and date
   // TODO: Give TaskList and ReminderList their props
@@ -25,6 +26,10 @@ const App = () => {
       <AppContainer >
         <GroupAContainer >
           { name.length ? <Dashboard name={name} /> : <NamePrompt setName={setName} /> }
+          <br />
+          { name.length ? <Notes /> : null }
+        </ GroupAContainer>
+        <GroupBContainer >
           <TaskReminderContainer >
             <br />
             { name.length ? <TaskList /> : null }
@@ -32,11 +37,8 @@ const App = () => {
             <br />
             { name.length ? <ReminderList /> : null }
           </ TaskReminderContainer>
-        </ GroupAContainer>
-        <GroupBContainer >
-          { name.length ? <HabitList /> : null }
           <br />
-          { name.length ? <Notes /> : null }
+          { name.length ? <HabitList /> : null }
         </ GroupBContainer>
       </AppContainer>
       <footer className='footer' style={{alignItems: 'center'}}>

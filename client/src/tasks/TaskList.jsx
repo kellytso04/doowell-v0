@@ -25,6 +25,7 @@ const TaskList = (props) => {
   useEffect(() => {
     fetchTasks()
       .then( ({data}) => {
+        console.log('task: ', data[0]);
         setTasks(data);
       })
       .catch( (err) => {
@@ -81,6 +82,7 @@ const TaskList = (props) => {
               id={task.id}
               taskText={task.task}
               category={task.category}
+              completed={task.completed}
               color={`#${task.hex_color}`}
               key={i}
               handleComplete={handleComplete}
